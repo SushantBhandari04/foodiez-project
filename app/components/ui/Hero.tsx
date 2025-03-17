@@ -1,12 +1,8 @@
 "use client"
 
-import Link from "next/link";
-import HeroButton from "./HeroButton";
 import { motion } from "framer-motion"
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
 import { useSession } from "next-auth/react";
 
 export default  function Hero() {

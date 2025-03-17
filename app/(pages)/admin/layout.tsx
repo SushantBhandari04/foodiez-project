@@ -2,12 +2,11 @@
 
 import { ReactNode } from "react";
 import { motion } from "framer-motion";
-import { SessionProvider, useSession } from "next-auth/react";
+import { SessionProvider } from "next-auth/react";
 import Footer from "@/app/components/ui/Footer";
 import ProfileModal from "@/app/components/ui/ProfileModal";
 import { useProfileModalStore, useUpdateModalStore } from "@/store";
 import AdminNavbar from "@/app/components/ui/AdminNavbar";
-import { authOptions } from "@/lib/auth";
 import UpdateModal from "@/app/components/ui/UpdateModal";
 
 

@@ -1,6 +1,5 @@
 "use client";
 
-import { Session } from "next-auth";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";

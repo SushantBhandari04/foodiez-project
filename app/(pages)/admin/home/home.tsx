@@ -5,7 +5,6 @@ import { useEffect, useState, useRef } from "react";
 import {  MenuItem, Type } from "@/app/config";
 import { Session } from "next-auth";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { toast } from "react-toastify";
 import { useMenuItemsStore } from "@/store";
 import AdminMenuCard from "@/app/components/ui/AdminMenuCard";
 

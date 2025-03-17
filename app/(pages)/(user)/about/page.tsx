@@ -1,7 +1,6 @@
 "use client"
 
 import Testimonials from "@/app/components/ui/testimonials";
-import { testimonials } from "@/app/components/ui/testimonials";
 import Link from "next/link";
 import { motion } from "framer-motion";
 

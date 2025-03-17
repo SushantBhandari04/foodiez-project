@@ -1,7 +1,6 @@
+import { prisma } from "@/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
 
 // Get all menu items
 export async function GET(req: NextRequest) {

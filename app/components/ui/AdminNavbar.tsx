@@ -7,7 +7,6 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import LoginButton from "./LoginButton";
 import { useRouter } from "next/navigation";
-import { toast } from "react-toastify";
 
 export default function AdminNavbar() {
     const session = useSession();
