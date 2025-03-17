@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { motion } from 'framer-motion';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 export default function Contact() {
   const [minDate, setMinDate] = useState('');
@@ -117,7 +118,7 @@ export default function Contact() {
           </form>
         </motion.div>
         <motion.div>
-          <img src="/book-table2.png" alt="" className='w-400' />
+          <Image src="/book-table2.png" alt="" className='w-400' />
         </motion.div>
       </div>
     </div>

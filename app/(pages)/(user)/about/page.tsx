@@ -3,6 +3,7 @@
 import Testimonials from "@/app/components/ui/testimonials";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function About() {
     return <motion.div
@@ -49,14 +50,14 @@ export default function About() {
                         Indulge in a delightful dining experience where exceptional flavors, warm ambiance, and top-notch service come together. Whether you're here for a casual meal, a special celebration, or a relaxing time with loved ones, our restaurant promises an unforgettable experience. Savor every bite, enjoy the inviting atmosphere, and let us make every moment special for you!
                     </h3>
                     <div className="flex gap-4">
-                        <img src="/Border.png" alt="" className="h-24" />
+                        <Image src="/Border.png" alt="" className="h-24" />
                         <div className="flex flex-col gap-2 justify-center">
                             <h2 className="text-xl text-white font-bold">Online Food Ordering</h2>
                             <p>Easy food ordering by browsing menu online.</p>
                         </div>
                     </div>
                     <div className="flex gap-4">
-                        <img src="/Border1.png" alt="" className="h-24" />
+                        <Image src="/Border1.png" alt="" className="h-24" />
                         <div className="flex flex-col gap-2 justify-center">
                             <h2 className="text-xl text-white font-bold">Healthy Food</h2>
                             <p>Eat a wide variety of nutritious healthy foods</p>
@@ -77,7 +78,7 @@ export default function About() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                             className="flex flex-col gap-2">
-                            <img src="/Services1.png" alt="" className="h-30 w-30" />
+                            <Image src="/Services1.png" alt="" className="h-30 w-30" />
                             <h2 className="text-xl font-semibold font-fredoka">Afternoon Tea</h2>
                             <p className="text-sm text-gray-300">Relax and enjoy a selection of fine teas paired with delightful pastries and light snacks for a perfect afternoon break.</p>
                         </motion.div>
@@ -86,7 +87,7 @@ export default function About() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
                             className="flex flex-col gap-2">
-                            <img src="/Services2.png" alt="" className="h-30 w-30" />
+                            <Image src="/Services2.png" alt="" className="h-30 w-30" />
                             <h2 className="text-xl font-semibold font-fredoka">Wine & Cocktails</h2>
                             <p className="text-sm text-gray-300">Experience a variety of handcrafted cocktails and premium wines to complement your meal or unwind with friends.</p>
                         </motion.div>
@@ -98,7 +99,7 @@ export default function About() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
                             className="flex flex-col gap-2">
-                            <img src="/Services3.png" alt="" className="h-30 w-30" />
+                            <Image src="/Services3.png" alt="" className="h-30 w-30" />
                             <h2 className="text-xl font-semibold font-fredoka">Live Music & Entertainment</h2>
                             <p className="text-sm text-gray-300">Enhance your dining experience with live music performances and entertainment, creating the perfect ambiance for a great time.</p>
                         </motion.div>
@@ -107,7 +108,7 @@ export default function About() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
                             className="flex flex-col gap-2">
-                            <img src="/Services4.png" alt="" className="h-30 w-30" />
+                            <Image src="/Services4.png" alt="" className="h-30 w-30" />
                             <h2 className="text-xl font-semibold font-fredoka">Alfresco Dining</h2>
                             <p className="text-sm text-gray-300">Dine under the open sky with our outdoor seating, offering a refreshing and cozy atmosphere for a memorable experience.</p>
                         </motion.div>
@@ -115,7 +116,7 @@ export default function About() {
                 </div>
 
             </div>
-            <img src="/Container.png" alt="" className="h-180" />
+            <Image src="/Container.png" alt="" className="h-180" />
         </div>
 
         <motion.img
@@ -130,7 +131,7 @@ export default function About() {
             transition={{ duration: 1 }}
             className="flex flex-col gap-24 justify-center items-center">
             <h1 className="text-5xl font-semibold font-fredoka">Meet Our Experts</h1>
-            <img src="/experts.png" alt="" className="h-150" />
+            <Image src="/experts.png" alt="" className="h-150" />
         </motion.div>
 
         <motion.div
@@ -139,7 +140,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="flex flex-col gap-16 justify-center items-center">
             <h1 className="text-5xl font-semibold font-fredoka">A Collection Of Unique Experiences</h1>
-            <img src="/experiences.png" alt="" className="h-120" />
+            <Image src="/experiences.png" alt="" className="h-120" />
         </motion.div>
 
         <motion.div
@@ -148,7 +149,7 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="flex flex-col gap-16 justify-center items-center">
             <h1 className="text-5xl font-semibold font-fredoka">A Wide Variety of Dishes</h1>
-            <img src="/food-banner.png" alt="" className="" />
+            <Image src="/food-banner.png" alt="" className="" />
         </motion.div>
 
         <div className="mt-8 px-16">
