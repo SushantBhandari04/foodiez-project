@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Testimonials from "@/app/components/ui/testimonials";
 import Link from "next/link";
@@ -16,7 +16,7 @@ export default function About() {
         <div className="bg-[url('/about-hero.png')] flex pl-8 w-full h-[700px] bg-cover bg-center ">
             <div className="mt-20 ml-20 w-2/5 flex flex-col gap-8">
                 <h1 className="text-8xl font-bold font-fredoka text-yellow-500">Foodiez</h1>
-                <h3 className="text-xl text-gray-300">Foodiez is a modern, all-in-one restaurant management platform designed to streamline operations and enhance customer experiences. Whether you are a restaurant owner, manager, or customer, Foodiez provides an intuitive and seamless way to browse menus, place orders, book tables, and manage reservations all in one place!</h3>
+                <h3 className="text-xl text-gray-300">Foodiez is a modern, all-in-one restaurant management platform designed to streamline operations and enhance customer experiences. Whether you&apos;re a restaurant owner, manager, or customer, Foodiez provides an intuitive and seamless way to browse menus, place orders, book tables, and manage reservations all in one place!</h3>
 
                 <div className="flex gap-12 mt-12 p-2">
                     <Link href="/dashboard"><button className="p-2 px-6 rounded-lg hover:translate-x-3 bg-red-500  cursor-pointer  transition transform inset 2s hover:scale-105 hover:border-0 flex justify-centeritems-center">Order now
@@ -47,7 +47,7 @@ export default function About() {
                     transition={{ duration: 0.6 }}
                     className="flex flex-col gap-8 text-gray-300">
                     <h3 className=" text-lg">
-                        Indulge in a delightful dining experience where exceptional flavors, warm ambiance, and top-notch service come together. Whether you are here for a casual meal, a special celebration, or a relaxing time with loved ones, our restaurant promises an unforgettable experience. Savor every bite, enjoy the inviting atmosphere, and let us make every moment special for you!
+                        Indulge in a delightful dining experience where exceptional flavors, warm ambiance, and top-notch service come together. Whether you&apos;re here for a casual meal, a special celebration, or a relaxing time with loved ones, our restaurant promises an unforgettable experience. Savor every bite, enjoy the inviting atmosphere, and let us make every moment special for you!
                     </h3>
                     <div className="flex gap-4">
                         <Image src="/Border.png" alt="" className="h-24" />
