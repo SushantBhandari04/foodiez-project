@@ -25,7 +25,6 @@ export default function Dashboard2({
   const user = session?.user;
 
   const [currentType, setCurrentType] = useState<null | string>(null);
-  const [loading, setLoading] = useState<boolean>(false);
 
   const { menuItems, setItems } = useMenuItemsStore((state) => state);
 
@@ -40,7 +39,7 @@ export default function Dashboard2({
     if (isInView) {
       mainControls.start("visible");
     }
-  }, [isInView])
+  }, [isInView, mainControls]); // Added mainControls to the dependency array
 
   useEffect(() => {
     if (currentType == null) {
@@ -54,7 +53,7 @@ export default function Dashboard2({
       });
       setItems(items);
     }
-  }, [currentType]);
+  }, [currentType, menuItemsData, setItems]); // Added menuItemsData and setItems to the dependency array
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
@@ -136,7 +135,7 @@ export default function Dashboard2({
           {currentType == null ? "All Items" : `${currentType}`}
         </h1>
 
-        {loading ? (
+        {menuItems.length === 0 ? (
           <div className="flex items-center justify-center min-h-[300px]">
             <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-white"></div>
           </div>

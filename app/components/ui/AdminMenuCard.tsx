@@ -3,6 +3,7 @@
 import { MenuItem } from "@/app/config";
 import { useMenuItemsStore, useUpdateItemStore, useUpdateModalStore } from "@/store";
 import axios from "axios";
+import Image from "next/image";
 import { toast } from "react-toastify";
 
 
@@ -44,7 +45,7 @@ export default function AdminMenuCard({ menuItem }: { menuItem: MenuItem}) {
     }
   return (
     <div className="flex flex-col gap-2 bg-gradient-to-b from-gray-500 text-white to-purple-1000 rounded-2xl pb-4 hover:bg-gray-900 hover:scale-102 transition transform">
-      <img src={menuItem.imageUrl} alt="Image" className="h-40 rounded-t-xl" />
+      <Image src={menuItem.imageUrl} alt="Image" className="h-40 rounded-t-xl" />
       <div className="flex flex-col justify-between gap-4 h-full px-5">
         <div className="flex flex-col gap-2">
           <h2 className="text-2xl font-semibold">{menuItem.name}</h2>

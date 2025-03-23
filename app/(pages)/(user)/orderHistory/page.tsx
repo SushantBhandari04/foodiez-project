@@ -1,6 +1,5 @@
 "use client";
 
-import { Session } from "next-auth";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
@@ -22,26 +21,24 @@ interface Order {
   orderId: string;
   totalAmount: number;
   items: OrderItem[];
-  createdAt: string
+  createdAt: string;
 }
 
-export default function OrderHistory({ session }: { session: Session }) {
+export default function OrderHistory() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
     async function fetchOrders() {
       try {
         const response = await axios.get("/api/orders");
         const data2 = await response.data;
-        console.log("Data in orderHistory page: ", data2)
-        const data = data2.filter(item => item.status != "pending")
+        console.log("Data in orderHistory page: ", data2);
+        const data = data2.filter((item: { status: string; }) => item.status !== "pending");
         setOrders(data);
         setLoading(false);
       } catch (e) {
-        setError(true);
-        console.log(e);
+        console.error("Error fetching orders:", e);
       }
     }
     fetchOrders();
@@ -63,26 +60,51 @@ export default function OrderHistory({ session }: { session: Session }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="flex w-full gap-12 flex-wrap justify-center">
+          className="flex w-full gap-12 flex-wrap justify-center"
+        >
           {orders.length > 0 ? (
             orders.map((order: Order) => (
-              <div key={order.id} className="flex flex-col gap-8  p-8 w-2/5 bg-gradient-to-b from-blue-950 to-violet-950 via-purple-1000   shadow-md rounded-lg h-fit">
+              <div
+                key={order.id}
+                className="flex flex-col gap-8  p-8 w-2/5 bg-gradient-to-b from-blue-950 to-violet-950 via-purple-1000   shadow-md rounded-lg h-fit"
+              >
                 <div className="flex flex-col gap-2">
-                  <div className="text-xl font-semibold text-red-400 flex gap-2">Order ID: <h3 className="text-white text-lg font-medium">{order.orderId}</h3></div>
-                  <div className="text-xl text-green-500 flex gap-2">Total Amount:  <h3 className="text-white text-lg">Rs. {order.totalAmount}</h3></div>
+                  <div className="text-xl font-semibold text-red-400 flex gap-2">
+                    Order ID:{" "}
+                    <h3 className="text-white text-lg font-medium">
+                      {order.orderId}
+                    </h3>
+                  </div>
+                  <div className="text-xl text-green-500 flex gap-2">
+                    Total Amount:{" "}
+                    <h3 className="text-white text-lg">
+                      Rs. {order.totalAmount}
+                    </h3>
+                  </div>
                   <div className="text-md text-gray-400 flex gap-2">
-                    Created At: <h3 className="text-white">{new Date(order.createdAt).toLocaleString()}</h3>
+                    Created At:{" "}
+                    <h3 className="text-white">
+                      {new Date(order.createdAt).toLocaleString()}
+                    </h3>
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-6">
                   {order.items.map((item: OrderItem) => (
                     <div key={item.id} className="flex gap-4 items-center">
-                      <Image src={item.menuItem.imageUrl} alt={item.menuItem.name} className="w-28 h-20 rounded-lg" />
+                      <Image
+                        src={item.menuItem.imageUrl}
+                        alt={item.menuItem.name}
+                        className="w-28 h-20 rounded-lg"
+                      />
                       <div className="flex flex-col gap-1">
-                        <h4 className="text-lg font-semibold text-blue-200">{item.menuItem.name}</h4>
+                        <h4 className="text-lg font-semibold text-blue-200">
+                          {item.menuItem.name}
+                        </h4>
                         <p className="text-sm">Quantity: {item.quantity}</p>
-                        <p className="text-sm">Price: Rs. {item.menuItem.price}</p>
+                        <p className="text-sm">
+                          Price: Rs. {item.menuItem.price}
+                        </p>
                       </div>
                     </div>
                   ))}

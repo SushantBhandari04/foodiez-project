@@ -21,33 +21,47 @@ export default function Contact() {
     setMinTime(isoString.split('T')[1].slice(0, 5));
   }, []);
 
-  async function handleSubmit(e: any) {
+  interface FormElements extends HTMLFormControlsCollection {
+    name: HTMLInputElement;
+    guests: HTMLInputElement;
+    phone: HTMLInputElement;
+    date: HTMLInputElement;
+    time: HTMLInputElement;
+  }
+
+  interface FormWithElements extends HTMLFormElement {
+    elements: FormElements;
+  }
+
+  async function handleSubmit(e: React.FormEvent<FormWithElements>) {
     e.preventDefault();
 
-    if(e.target.phone.value.length!=10){
+    const form = e.currentTarget.elements;
+
+    if (form.phone.value.length !== 10) {
       setPhoneError(true);
       return;
     }
     setLoading(true);
     const response = await axios.post("http://localhost:3000/api/book", {
-      name: e.target.name.value,
-      guests: parseInt(e.target.guests.value),
-      phone: parseFloat(e.target.phone.value),
-      date: e.target.date.value,
-      time: e.target.time.value,
+      name: form.name.value,
+      guests: parseInt(form.guests.value),
+      phone: parseFloat(form.phone.value),
+      date: form.date.value,
+      time: form.time.value,
     });
 
-    setLoading(false)
+    setLoading(false);
     if (response.data) {
       Swal.fire({
         title: "Success!",
         text: "Table booked successfully.",
-        icon: "success"
+        icon: "success",
       });
     } else {
       toast.error("Error while booking table!", {
         autoClose: 2000,
-        theme: "colored"
+        theme: "colored",
       });
     }
   }

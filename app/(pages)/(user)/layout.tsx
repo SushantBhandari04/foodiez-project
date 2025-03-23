@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Navbar from "@/app/components/ui/Navbar";
 import { ReactNode } from "react";
@@ -8,9 +8,8 @@ import Footer from "@/app/components/ui/Footer";
 import ProfileModal from "@/app/components/ui/ProfileModal";
 import { useProfileModalStore } from "@/store";
 
-
-export default function ({ children }: { children: ReactNode }) {
-  const profileModal = useProfileModalStore((state) => state.modal)
+export default function UserLayout({ children }: { children: ReactNode }) { // Named the function "UserLayout"
+  const profileModal = useProfileModalStore((state) => state.modal);
 
   return (
     <SessionProvider>
@@ -22,7 +21,6 @@ export default function ({ children }: { children: ReactNode }) {
         style={{ fontFamily: "DM Sans" }}
         className="bg-black text-white w-full flex flex-col gap-36 items-center justify-center"
       >
-
         <motion.div
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

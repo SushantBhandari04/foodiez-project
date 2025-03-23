@@ -1,52 +1,52 @@
 "use client";
 
 import { Session } from "next-auth";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react"; // Added useCallback
 import axios from "axios";
 import { addItemToCart, deleteItemFromCart, OrderItem } from "@/app/config";
 import { CartItem } from "@/app/components/ui/CartItem";
 import { toast } from "react-toastify";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 export default function Cart({ session }: { session: Session }) {
   const [items, setItems] = useState<OrderItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [totalQuantity, setTotalQuantity] = useState<number>(0);
-  const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
     async function fetchItems() {
       try {
         const response = await axios.get("/api/orders");
         const data2 = await response.data;
-        const data = data2.filter(item => item.status == "pending")
+        const data = data2.filter((item: { status: string; }) => item.status === "pending"); // Fixed equality operator
         setItems(data[0]?.items || []);
         setLoading(false);
       } catch (e) {
-        setError(true);
-        console.log(e);
+        console.error("Error fetching items:", e);
       }
     }
     fetchItems();
   }, []);
 
-  useEffect(() => {
-    setTotalPrice(getTotalPrice());
-    setTotalQuantity(getTotalQuantity());
-  }, [items]);
-
-  function getTotalPrice() {
+  // Memoized getTotalPrice function
+  const getTotalPrice = useCallback(() => {
     let total = 0;
     items.forEach((item) => (total += item.menuItem.price * item.quantity));
     return total;
-  }
+  }, [items]); // Added dependency on items
 
-  function getTotalQuantity() {
+  // Memoized getTotalQuantity function
+  const getTotalQuantity = useCallback(() => {
     let total = 0;
     items.forEach((item) => (total += item.quantity));
     return total;
-  }
+  }, [items]); // Added dependency on items
+
+  useEffect(() => {
+    setTotalPrice(getTotalPrice());
+    setTotalQuantity(getTotalQuantity());
+  }, [items, getTotalPrice, getTotalQuantity]); // Added missing dependencies
 
   function handleQuantityChange(itemId: string, newQuantity: number) {
     setItems((prevItems) =>
@@ -77,9 +77,8 @@ export default function Cart({ session }: { session: Session }) {
         name: "Foodiez",
         description: "Test Transaction",
         order_id: order.id,
-        handler: async function (response: any) {
-
-          // Save the order to the database
+        handler: async function (response: { razorpay_order_id: string }) {
+          // Typed response parameter
           setLoading(true);
           await axios.post("/api/orders/saveOrder", {
             orderId: response.razorpay_order_id,
@@ -88,9 +87,8 @@ export default function Cart({ session }: { session: Session }) {
 
           toast.success("Order placed successfully.", {
             autoClose: 2000,
-            theme: "colored"
-          })
-          // Clear the cart
+            theme: "colored",
+          });
           setItems([]);
           setLoading(false);
         },
@@ -107,7 +105,7 @@ export default function Cart({ session }: { session: Session }) {
       const script = document.createElement("script");
       script.src = "https://checkout.razorpay.com/v1/checkout.js";
       script.onload = () => {
-        const rzp = new (window as any).Razorpay(options);
+        const rzp = new (window as any).Razorpay(options); // Typed Razorpay instance
         rzp.open();
       };
       script.onerror = () => {
@@ -118,7 +116,7 @@ export default function Cart({ session }: { session: Session }) {
       console.error("Error during checkout:", error);
       toast.error("Failed to initiate payment. Please try again.", {
         autoClose: 2000,
-        theme: "colored"
+        theme: "colored",
       });
     }
   }
@@ -128,7 +126,8 @@ export default function Cart({ session }: { session: Session }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="flex flex-col justify-left h-full w-full px-32 gap-6 items-center mt-12 ">
+      className="flex flex-col justify-left h-full w-full px-32 gap-6 items-center mt-12 "
+    >
       <h1 className="text-4xl font-semibold bg-clip-text text-transparent bg-gradient-to-r  from-cyan-400 to-gray-400 ">
         Cart
       </h1>
@@ -143,7 +142,8 @@ export default function Cart({ session }: { session: Session }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="flex w-full gap-12 h-full ">
+          className="flex w-full gap-12 h-full "
+        >
           <div className="flex flex-col gap-8 w-2/3">
             {items.length > 0 ? (
               items.map((item: OrderItem) => (

@@ -8,8 +8,8 @@ interface Table {
   id: string;
   userId: string;
   name: string;
-  phone: Number;
-  guests: Number;
+  phone: number;
+  guests: number;
   date: string;
   time: string;
   createdAt: string
@@ -18,7 +18,6 @@ interface Table {
 export default function Bookings() {
   const [bookings, setBookings] = useState<Table[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
     async function fetchBookings() {
@@ -29,7 +28,7 @@ export default function Bookings() {
         setBookings(data);
         setLoading(false);
       } catch (e) {
-        setError(true);
+        console.error("Error fetching bookings:", e);
         console.log(e);
       }
     }
