@@ -88,6 +88,8 @@ export async function DELETE(req: NextRequest) {
   const session = await getServerSession(authOptions);
   const user = session?.user;
 
+  console.log("User: ", user)
+
   if (!session || !user) {
     return NextResponse.json({
       message: "Unauthorized",
@@ -96,6 +98,8 @@ export async function DELETE(req: NextRequest) {
 
   const url = new URL(req.url);
   const itemId = url.searchParams.get("itemId");
+
+  console.log("Item Id: ", itemId);
 
   if (!itemId) {
     return NextResponse.json({
@@ -106,11 +110,14 @@ export async function DELETE(req: NextRequest) {
   const orders = await prisma.order.findFirst({
     where: {
       userId: user.id as string,
+      status: "pending"
     },
     include: {
       items: true,
     },
   });
+
+  console.log("Orders: ", orders);
 
   if (!orders) {
     return NextResponse.json({

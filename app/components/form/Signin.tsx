@@ -223,7 +223,7 @@ export default function Signin() {
               </>
             ) : (
               <div className="flex gap-2 items-center justify-center">
-                <Image src="/google.png" alt="Google Icon" className="h-5 w-5 mr-2" />
+                <img src="/google.png" alt="Google Icon" className="h-5 w-5 mr-2" />
                 Sign In with Google
               </div>
             )}
@@ -242,7 +242,7 @@ export default function Signin() {
       animate={mainControls}
       transition={{ duration: 0.75, delay: 0.25 }}
       className="h-screen w-1/2">
-      <Image src="/new-signin-4.jpg" alt="Signup Image" className="h-full w-full" />
+      <img src="/new-signin-4.jpg" alt="Signup Image" className="h-full w-full" />
     </motion.div>
   </div>
 

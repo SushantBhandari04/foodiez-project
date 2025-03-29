@@ -92,7 +92,7 @@ export default function OrderHistory() {
                 <div className="flex flex-col gap-6">
                   {order.items.map((item: OrderItem) => (
                     <div key={item.id} className="flex gap-4 items-center">
-                      <Image
+                      <img
                         src={item.menuItem.imageUrl}
                         alt={item.menuItem.name}
                         className="w-28 h-20 rounded-lg"

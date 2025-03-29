@@ -54,7 +54,7 @@ export default function AdminBookings() {
           className="flex w-full gap-12 flex-wrap justify-center">
           {bookings.length > 0 ? (
             bookings.map((table: Table) => (
-              <div key={table.id} className="flex flex-col gap-8  p-8 w-2/5 bg-gradient-to-br from-sky-950 to-violet-950 via-indigo-900   shadow-md rounded-lg h-fit">
+              <div key={table.id} className="flex flex-col gap-8  p-8 w-2/5 bg-gradient-to-br from-sky-950 to-violet-900 via-indigo-950   shadow-md rounded-lg h-fit">
                 <div className="flex flex-col gap-2">
                   <div className="text-xl font-semibold text-green-500 flex flex-wrap gap-2">Booking ID: <h3 className="text-white text-lg">{table.id}</h3></div>
                   <div className="text-md text-gray-400 flex gap-2">

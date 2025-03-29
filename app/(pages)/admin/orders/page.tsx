@@ -80,7 +80,7 @@ export default function Orders({ session }: { session: Session }) {
                 <div className="flex flex-col gap-6">
                   {order.items.map((item: OrderItem) => (
                     <div key={item.id} className="flex gap-4 items-center">
-                      <Image src={item.menuItem.imageUrl} alt={item.menuItem.name} className="w-28 h-20 rounded-lg" />
+                      <img src={item.menuItem.imageUrl} alt={item.menuItem.name} className="w-28 h-20 rounded-lg" />
                       <div className="flex flex-col gap-1">
                         <h4 className="text-lg font-semibold text-blue-200">{item.menuItem.name}</h4>
                         <p className="text-sm">Quantity: {item.quantity}</p>

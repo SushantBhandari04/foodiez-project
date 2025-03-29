@@ -120,7 +120,7 @@ export default function Signup() {
                 animate={mainControls}
                 transition={{ duration: 0.6, delay: 0.15 }}
                 className="h-screen w-1/2">
-                <Image src="/signup-image.jpg" alt="Signup Image" className="h-full w-full" />
+                <img src="/signup-image.jpg" alt="Signup Image" className="h-full w-full" />
             </motion.div>
             <motion.div
                 variants={{
@@ -258,7 +258,7 @@ export default function Signup() {
                             </>
                         ) : (
                             <div className="flex gap-2 items-center justify-center">
-                                <Image src="/google.png" alt="Google Icon" className="h-5 w-5 mr-2" />
+                                <img src="/google.png" alt="Google Icon" className="h-5 w-5 mr-2" />
                                 Sign Up with Google
                             </div>
                         )}

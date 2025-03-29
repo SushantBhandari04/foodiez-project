@@ -37,6 +37,7 @@ export async function DELETE(req: NextRequest) {
   const orders = await prisma.order.findFirst({
     where: {
       userId: user.id as string,
+      status: "pending",
     },
   });
 

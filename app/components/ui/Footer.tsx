@@ -8,7 +8,7 @@ export default function Footer() {
             <div className="flex flex-col gap-12 w-full justify-left items-left m-0 p-0">
                 <div className="w-full flex flex-col justify-center items-center gap-2">
                     <div className=" "><Logo /></div>
-                    <div className="text-slate-300">Designed and developed by Sushant</div>
+                    <div className="text-slate-300 flex gap-4">Designed and developed by :<h1 className="text-red-300">Dheerendra, Devang, Ranjan and Sushant</h1></div>
                 </div>
 
                 <div>

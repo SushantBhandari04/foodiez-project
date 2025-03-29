@@ -132,7 +132,7 @@ export default function Contact() {
           </form>
         </motion.div>
         <motion.div>
-          <Image src="/book-table2.png" alt="" className='w-400' />
+          <img src="/book-table2.png" alt="" className='w-400' />
         </motion.div>
       </div>
     </div>
