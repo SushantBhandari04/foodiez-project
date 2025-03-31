@@ -32,7 +32,7 @@ const CACHE_TTL = 60 * 60; // Cache for 1 hour
     }
 
     try {
-        const response = await axios.get("http://localhost:3000/api/menu/all");
+        const response = await axios.get(`${process.env.BACKEND_URL}/api/menu/all`);
         const data = response.data;
         setCache(cacheKey, data, CACHE_TTL);
         return data;
