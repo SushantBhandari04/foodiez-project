@@ -32,7 +32,7 @@ export const authOptions: NextAuthOptions = {
       
         const existingUser = await prisma.user.findUnique({
           where: {
-            email: credentials.email,
+            email: credentials.email || undefined, // Ensure email is either a string or undefined
           },
         });
       
@@ -65,35 +65,33 @@ export const authOptions: NextAuthOptions = {
         token.username = user.username;
         token.email = user.email;
       }
-
-
+    
       // Link accounts if necessary
       if (account?.provider && user) {
         const existingUser = await prisma.user.findUnique({
           where: {
-            email: user.email,
+            email: user.email || undefined, // Ensure email is either a string or undefined
           },
         });
-
+    
         if (existingUser && existingUser.id !== user.id) {
           await prisma.account.create({
             data: {
               userId: existingUser.id,
               provider: account.provider,
               providerAccountId: account.providerAccountId,
+              type: account.type || "oauth", // Add the required 'type' field
             },
           });
-
+    
           token.id = existingUser.id;
         }
       }
-
+    
       if (account) {
         token.accessToken = account.access_token;
       }
-
-      // console.log("Token ",token);
-
+    
       return token;
     },
     async session({ session, token }) {
