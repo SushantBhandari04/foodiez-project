@@ -29,31 +29,31 @@ export const authOptions: NextAuthOptions = {
         if (!credentials?.email || !credentials.password) {
           return null;
         }
-
+      
         const existingUser = await prisma.user.findUnique({
           where: {
             email: credentials.email,
           },
         });
-
+      
         if (!existingUser) {
           return null;
         }
-
+      
         if (existingUser.password) {
           const passwordMatch = await bcrypt.compare(credentials.password, existingUser.password);
-
+      
           if (!passwordMatch) {
             return null;
           }
         } else {
           return null;
         }
-
+      
         return {
           id: `${existingUser.id}`,
           email: existingUser.email,
-          username: existingUser.username,
+          username: existingUser.username || "Anonymous", // Provide a default value if username is null
         };
       },
     }),
