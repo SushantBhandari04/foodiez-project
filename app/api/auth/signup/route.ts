@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
         })
 
         const { password: newUserPassword, ...rest } = newUser;
-
+        
         return NextResponse.json({
             user: rest,
             message: "User signed up successfully."

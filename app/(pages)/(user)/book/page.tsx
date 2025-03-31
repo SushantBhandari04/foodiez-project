@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 import { motion } from 'framer-motion';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 
 export default function Contact() {
   const [minDate, setMinDate] = useState('');

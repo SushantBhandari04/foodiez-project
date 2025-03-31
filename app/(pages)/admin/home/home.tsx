@@ -19,7 +19,6 @@ export default function AdminHome({
   typesData,
   menuItemsData,
 }: AdminHomeProps   ) {
-  const user = session?.user;
 
   const [currentType, setCurrentType] = useState<null | string>(null);
   const [loading, setLoading] = useState<boolean>(false);

@@ -1,6 +1,5 @@
 "use client";
 
-import { Session } from "next-auth";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
@@ -32,7 +31,6 @@ export default function Orders() {
   const session = useSession();
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<boolean>(false);
   const router = useRouter();
 
   useEffect(()=>{
@@ -51,7 +49,6 @@ export default function Orders() {
         setOrders(data);
         setLoading(false);
       } catch (e) {
-        setError(true);
         console.log(e);
       }
     }

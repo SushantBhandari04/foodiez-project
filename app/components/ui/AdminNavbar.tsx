@@ -6,7 +6,6 @@ import NavbarTags from "./NavbarTags";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import LoginButton from "./LoginButton";
-import { useRouter } from "next/navigation";
 
 export default function AdminNavbar() {
     const session = useSession();

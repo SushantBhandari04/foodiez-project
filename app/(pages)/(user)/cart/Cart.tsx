@@ -75,33 +75,57 @@ export default function Cart({ session }: { session: Session }) {
       const order = await response.data;
       console.log("Order final: ", order.order);
 
-      const options = {
+      interface RazorpayOptions {
+        key: string;
+        amount: number;
+        currency: string;
+        name: string;
+        description: string;
+        order_id: string;
+        handler: (response: RazorpayResponse) => Promise<void>;
+        prefill: RazorpayPrefill;
+        theme: RazorpayTheme;
+      }
+
+      interface RazorpayResponse {
+        razorpay_order_id: string;
+      }
+
+      interface RazorpayPrefill {
+        name: string;
+        email: string;
+      }
+
+      interface RazorpayTheme {
+        color: string;
+      }
+
+      const options: RazorpayOptions = {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
         amount: order.amount,
         currency: order.currency,
         name: "Foodiez",
         description: "Test Transaction",
         order_id: order.id,
-        handler: async function (response: any) {
-
+        handler: async function (response: RazorpayResponse) {
           // Save the order to the database
           setLoading(true);
           await axios.post("/api/orders/saveOrder", {
-            orderId: response.razorpay_order_id,
-            totalAmount: totalPrice,
+        orderId: response.razorpay_order_id,
+        totalAmount: totalPrice,
           });
 
           toast.success("Order placed successfully.", {
-            autoClose: 2000,
-            theme: "colored"
-          })
+        autoClose: 2000,
+        theme: "colored",
+          });
           // Clear the cart
           setItems([]);
           setLoading(false);
         },
         prefill: {
-          name: session.user.name,
-          email: session.user.email,
+          name: session.user.name || "Guest",
+          email: session.user.email || "guest@example.com",
         },
         theme: {
           color: "#3399cc",

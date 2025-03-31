@@ -92,7 +92,7 @@ export default function Signup() {
                 }
                 setLoading(false);
             });
-        } catch (error) {
+        } catch {
             toast.error("Signup failed. Please try again.", {
                 autoClose: 3000,
                 theme: "colored"

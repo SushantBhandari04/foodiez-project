@@ -34,13 +34,13 @@ export async function POST(req: NextRequest){
         })
         return NextResponse.json(table)
     }catch(e){
-        return NextResponse.json({ error: "Failed to book table" }, { status: 500 });
+        return NextResponse.json({ error: `Failed to book table, ${e}` }, { status: 500 });
     }
 }
 
 
 // get table booking data
-export async function GET(req: NextRequest) {
+export async function GET() {
 
     const session = await getServerSession(authOptions);
 
@@ -69,6 +69,6 @@ export async function GET(req: NextRequest) {
       return NextResponse.json(bookings);
 
     } catch (error) {
-      return NextResponse.json({ error: "Failed to fetch bookings." }, { status: 500 });
+      return NextResponse.json({ error: `Failed to fetch bookings. ${error}` }, { status: 500 });
     }
   }

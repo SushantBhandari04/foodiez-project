@@ -23,7 +23,7 @@ export async function GET(req: NextRequest) {
       return NextResponse.json(menuItems);
     }
   } catch (error) {
-    return NextResponse.json({ error: "Failed to fetch menu items" }, { status: 500 });
+    return NextResponse.json({ error: `Failed to fetch menu items. ${error}` }, { status: 500 });
   }
 }
 
@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
     });
     return NextResponse.json(newItem);
   } catch (error) {
-    return NextResponse.json({ error: "Failed to add menu item" }, { status: 500 });
+    return NextResponse.json({ error: `Failed to add menu item. ${error}` }, { status: 500 });
   }
 }
 
@@ -70,7 +70,7 @@ export async function DELETE(req:NextRequest){
     });
     return NextResponse.json(newItem);
   } catch (error) {
-    return NextResponse.json({ error: "Failed to delete menu item" }, { status: 500 });
+    return NextResponse.json({ error: `Failed to delete menu item. ${error}` }, { status: 500 });
   }
 }
 
@@ -86,9 +86,17 @@ export async function PUT(req: NextRequest) {
     })
   }
 
+  interface updateItemData {
+    name?: string,
+    description?: string,
+    price?: number,
+    imageUrl?: string,
+    typeName?: string,
+  }
+
   const { id, name, description, price, imageUrl, typeName } = await req.json();
 
-  const updateData: any = {};
+  const updateData:updateItemData = {};
   if (name !== undefined) updateData.name = name;
   if (description !== undefined) updateData.description = description;
   if (price !== undefined) updateData.price = price;
@@ -105,6 +113,6 @@ export async function PUT(req: NextRequest) {
 
     return NextResponse.json(updatedItem);
   } catch (e) {
-    return NextResponse.json({ error: "Failed to update menu item" }, { status: 500 });
+    return NextResponse.json({ error: `Failed to update menu item. ${e}` }, { status: 500 });
   }
 }

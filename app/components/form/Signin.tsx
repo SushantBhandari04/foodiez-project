@@ -29,7 +29,7 @@ export default function Signin() {
   }, [isInView])
 
   function validateForm() {
-    let newErrors: { email?: string; password?: string } = {};
+    const newErrors: { email?: string; password?: string } = {};
     if (!email) {
       newErrors.email = "Email is required.";
     } else if (!/\S+@\S+\.\S+/.test(email)) {
@@ -178,7 +178,7 @@ export default function Signin() {
             )}
           </button>
           <p className="text-center ">
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <a href="/signup" className="text-blue-300 font-semibold hover:underline">
               Sign up
             </a>
