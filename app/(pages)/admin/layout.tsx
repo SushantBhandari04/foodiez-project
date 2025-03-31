@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { ReactNode } from "react";
 import { motion } from "framer-motion";
@@ -9,10 +9,9 @@ import { useProfileModalStore, useUpdateModalStore } from "@/store";
 import AdminNavbar from "@/app/components/ui/AdminNavbar";
 import UpdateModal from "@/app/components/ui/UpdateModal";
 
-
-export default function ({ children }: { children: ReactNode }) {
-  const profileModal = useProfileModalStore((state) => state.modal)
-  const updateModal = useUpdateModalStore((state) => state.modal)
+export default function AdminLayout({ children }: { children: ReactNode }) { // Added a named function
+  const profileModal = useProfileModalStore((state) => state.modal);
+  const updateModal = useUpdateModalStore((state) => state.modal);
 
   return (
     <SessionProvider>
@@ -24,7 +23,6 @@ export default function ({ children }: { children: ReactNode }) {
         style={{ fontFamily: "DM Sans" }}
         className="bg-black text-white w-full flex flex-col gap-36 items-center justify-center"
       >
-
         <motion.div
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -37,7 +35,6 @@ export default function ({ children }: { children: ReactNode }) {
           {children}
           {profileModal && <ProfileModal />}
           {updateModal && <UpdateModal />}
-          
         </motion.div>
         <Footer />
       </motion.div>
