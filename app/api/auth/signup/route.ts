@@ -44,7 +44,8 @@ export async function POST(req: NextRequest) {
             }
         })
 
-        const { password, ...rest } = newUser;
+           // Omit the password field without assigning it to a variable
+    const { password: _, ...rest } = newUser;
 
         return NextResponse.json({
             user: rest,
