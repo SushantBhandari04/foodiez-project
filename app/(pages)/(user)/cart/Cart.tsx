@@ -1,9 +1,42 @@
 "use client";
 
+interface RazorpayOptions {
+  key: string;
+  amount: number;
+  currency: string;
+  name: string;
+  description: string;
+  order_id: string;
+  handler: (response: RazorpayResponse) => Promise<void>;
+  prefill: RazorpayPrefill;
+  theme: RazorpayTheme;
+}
+
 declare global {
   interface Window {
-    Razorpay: any;
+    Razorpay: {
+      new (options: RazorpayOptions): RazorpayInstance;
+    };
   }
+}
+
+
+
+interface RazorpayInstance {
+  open: () => void;
+}
+
+interface RazorpayResponse {
+  razorpay_order_id: string;
+}
+
+interface RazorpayPrefill {
+  name: string;
+  email: string;
+}
+
+interface RazorpayTheme {
+  color: string;
 }
 
 import { Session } from "next-auth";
@@ -81,31 +114,11 @@ export default function Cart({ session }: { session: Session }) {
       const order = await response.data;
       console.log("Order final: ", order.order);
 
-      interface RazorpayOptions {
-        key: string;
-        amount: number;
-        currency: string;
-        name: string;
-        description: string;
-        order_id: string;
-        handler: (response: RazorpayResponse) => Promise<void>;
-        prefill: RazorpayPrefill;
-        theme: RazorpayTheme;
-      }
+     
 
-      interface RazorpayResponse {
-        razorpay_order_id: string;
-      }
+     
 
-      interface RazorpayPrefill {
-        name: string;
-        email: string;
-      }
-
-      interface RazorpayTheme {
-        color: string;
-      }
-
+   
       const options: RazorpayOptions = {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
         amount: order.amount,

@@ -3,7 +3,8 @@ type CacheEntry<T> = {
   expiry: number;
 };
 
-const cache: Record<string, CacheEntry<any>> = {};
+// Use a generic type for the cache object
+const cache: Record<string, CacheEntry<unknown>> = {};
 
 export function setCache<T>(key: string, data: T, ttl: number) {
   const expiry = Date.now() + ttl * 1000;
@@ -17,5 +18,5 @@ export function getCache<T>(key: string): T | undefined {
     delete cache[key];
     return undefined;
   }
-  return entry.data;
+  return entry.data as T;
 }
