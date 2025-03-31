@@ -9,7 +9,7 @@ import { getCache, setCache } from "@/lib/cache";
 const CACHE_TTL = 60 * 60; // Cache for 1 hour
 
 
-export const fetchTypes = async (): Promise<Type[] | undefined> => {
+ const fetchTypes = async (): Promise<Type[] | undefined> => {
     const cacheKey = "typesData";
     const cachedData = getCache<Type[]>(cacheKey);
     if (cachedData) {
@@ -26,7 +26,7 @@ export const fetchTypes = async (): Promise<Type[] | undefined> => {
     }
 };
 
-export const fetchMenuItems = async (): Promise<MenuItem[] | undefined> => {
+ const fetchMenuItems = async (): Promise<MenuItem[] | undefined> => {
     
     try {
         const response = await axios.get("http://localhost:3000/api/menu/all");
