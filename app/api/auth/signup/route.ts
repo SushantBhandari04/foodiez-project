@@ -45,12 +45,11 @@ export async function POST(req: NextRequest) {
         })
 
            // Omit the password field without assigning it to a variable
-    const { password: _, ...rest } = newUser;
 
-        return NextResponse.json({
-            user: rest,
+           return NextResponse.json({
+            user: (({ password, ...rest }) => rest)(newUser), // Exclude the password field
             message: "User signed up successfully."
-        })
+          });
     }
     catch  {
         return NextResponse.json({
