@@ -6,7 +6,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 export function Button({ variant = "primary", className = "", ...props }: ButtonProps) {
-  let baseStyles = "px-4 py-2 rounded-lg font-medium transition-all duration-200";
+  const baseStyles = "px-4 py-2 rounded-lg font-medium transition-all duration-200";
   let variantStyles = "";
 
   if (variant === "primary") {

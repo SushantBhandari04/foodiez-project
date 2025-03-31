@@ -1,6 +1,5 @@
 import { MenuItem } from "@/app/config";
 import AddIcon from "./AddIcon";
-import Image from "next/image";
 
 export default function MenuCard({ menuItem, onClick }: { menuItem: MenuItem; onClick?: () => void }) {
   return (

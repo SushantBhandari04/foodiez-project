@@ -5,7 +5,6 @@ import { deleteCompleteItem } from "@/app/config";
 
 
 interface CartItemProps {
-  user: any;
   id: string;
   imageUrl: string;
   title: string;
@@ -19,7 +18,6 @@ interface CartItemProps {
 }
 
 export const CartItem: FC<CartItemProps> = ({
-  user,
   id,
   imageUrl,
   title,

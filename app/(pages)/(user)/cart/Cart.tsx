@@ -20,7 +20,7 @@ export default function Cart({ session }: { session: Session }) {
       try {
         const response = await axios.get("/api/orders");
         const data2 = await response.data;
-        const data = data2.filter(item => item.status == "pending")
+        const data = data2.filter((item: { status: string; }) => item.status == "pending")
         setItems(data[0]?.items || []);
         console.log(data[0].items)
         setLoading(false);
@@ -28,6 +28,7 @@ export default function Cart({ session }: { session: Session }) {
 
       } catch (e) {
         setError(true);
+        console.log(error);
         console.log(e);
       }
     }
@@ -152,7 +153,6 @@ export default function Cart({ session }: { session: Session }) {
             {items.length > 0 ? (
               items.map((item: OrderItem) => (
                 <CartItem
-                  user={session.user}
                   key={item.id}
                   id={item.menuItemId}
                   imageUrl={item.menuItem.imageUrl}

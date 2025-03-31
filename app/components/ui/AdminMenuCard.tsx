@@ -3,7 +3,6 @@
 import { MenuItem } from "@/app/config";
 import { useMenuItemsStore, useUpdateItemStore, useUpdateModalStore } from "@/store";
 import axios from "axios";
-import Image from "next/image";
 import { toast } from "react-toastify";
 
 

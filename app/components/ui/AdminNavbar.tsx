@@ -11,7 +11,6 @@ import { useRouter } from "next/navigation";
 export default function AdminNavbar() {
     const session = useSession();
     const user = session.data ? session.data.user : null;
-    const router = useRouter()
 
     const isAdmin = user?.email==="admin@gmail.com" ? true : false
 

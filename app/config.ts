@@ -38,7 +38,7 @@ export function addItemToCart(itemId: string, user: User) {
             hideProgressBar: true,
         })
         console.log(response.data)
-    }).catch((e) => {
+    }).catch(() => {
         toast.error("Error while adding item to cart.", {
             autoClose: 2000,
             theme: "colored"
@@ -49,8 +49,8 @@ export function addItemToCart(itemId: string, user: User) {
 
 export function deleteCompleteItem(itemId: string) {
     axios.delete(`/api/order/delete?itemId=${itemId}`, {
-    }).then((response) => {
-    }).catch((e) => {
+    }).then(() => {
+    }).catch(() => {
         toast.error("Error while remooving from cart.", {
             autoClose: 2000,
             theme: "colored"
@@ -61,8 +61,8 @@ export function deleteCompleteItem(itemId: string) {
 
 export function deleteItemFromCart(itemId: string) {
     axios.delete(`/api/order?itemId=${itemId}`, {
-    }).then((response) => {
-    }).catch((e) => {
+    }).then(() => {
+    }).catch(() => {
         toast.error("Error while remooving from cart.", {
             autoClose: 2000,
             theme: "colored"

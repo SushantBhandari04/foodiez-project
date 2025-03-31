@@ -1,6 +1,5 @@
 "use client";
 
-import axios from "axios";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { useState } from "react";
@@ -15,21 +14,38 @@ export default function AddMenuItem() {
     redirect("/dashboard");
   }
 
-  async function handleSubmit(e: any) {
-    setLoading(true)
+  interface MenuItemData {
+    name: string;
+    description: string;
+    price: number;
+    imageUrl: string;
+    typeName: string;
+  }
+
+  interface FormEventTarget extends EventTarget {
+    name: { value: string };
+    description: { value: string };
+    price: { value: string };
+    image: { value: string };
+    type: { value: string };
+  }
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    setLoading(true);
     e.preventDefault();
 
-    const data = {
-      name: e.target.name.value,
-      description: e.target.description.value,
-      price: parseInt(e.target.price.value),
-      imageUrl: e.target.image.value,
-      typeName: e.target.type.value,
+    const target = e.target as FormEventTarget;
+
+    const data: MenuItemData = {
+      name: target.name.value,
+      description: target.description.value,
+      price: parseInt(target.price.value),
+      imageUrl: target.image.value,
+      typeName: target.type.value,
     };
 
-
     try {
-      const response = await fetch("/api/menu", {
+      const response: Response = await fetch("/api/menu", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -38,7 +54,6 @@ export default function AddMenuItem() {
         body: JSON.stringify(data),
       });
 
-      const result = await response.json();
       setLoading(false);
       if (response.ok) {
         Swal.fire({
@@ -52,7 +67,7 @@ export default function AddMenuItem() {
           theme: "colored",
         });
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error("Error submitting form:", error);
       toast.error("Error while sending request!", {
         autoClose: 2000,

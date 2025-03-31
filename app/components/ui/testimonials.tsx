@@ -35,7 +35,7 @@ export default function Testimonials() {
         <h2 className="text-3xl md:text-4xl font-bold mt-2">Why choose Foodiez?</h2>
         <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
           Foodiez makes restaurant management seamless with a user-friendly experience.
-          Whether you’re a restaurant owner or a customer, we offer a smooth and efficient dining experience.
+          Whether you are a restaurant owner or a customer, we offer a smooth and efficient dining experience.
         </p>
       </div>
 

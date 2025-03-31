@@ -11,39 +11,78 @@ export default function UpdateModal() {
     const { menuItems, setItems } = useMenuItemsStore((state) => state);
     const id = useUpdateItemStore(state=>state.id)
 
-    async function handleSubmit(e: any) {
-            e.preventDefault();
-            const data = {
-                id,
-                name: e.target.name.value || undefined,
-                description: e.target.description.value || undefined,
-                imageUrl: e.target.imageUrl.value || undefined,
-                price: e.target.price.value ? parseInt(e.target.price.value) : undefined,
-                typeName: e.target.typeName.value || undefined,
-              };
-            const response = await axios.put("http://localhost:3000/api/menu",data)
-            const result = response.data
-            if (result) {
-                const updatedMenuItems = menuItems.map((item) =>
-                    item.id === id ? { id: data.id || item.id, name:  data.name  || item.name, description: data.description || item.description, price: data.price || item.price, typeName: data.typeName || item.typeName,  imageUrl: data.imageUrl || item.imageUrl,  } : item
-                );
-                setItems(updatedMenuItems);
+    interface UpdateItemData {
+        id: string;
+        name?: string;
+        description?: string;
+        imageUrl?: string;
+        price?: number;
+        typeName?: string;
+    }
 
-                Swal.fire({
-                    title: "Success!",
-                    text: "Item updated successfully.",
-                    icon: "success"
-                });
+    interface ApiResponse {
+        data: boolean;
+    }
 
-                closeModal()
-            }
-            else {
-                toast.error("Error while updating item!", {
-                    autoClose: 2000,
-                    theme: "colored"
-                })
-            }
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        const target = e.target as typeof e.target & {
+            name: { value: string };
+            description: { value: string };
+            imageUrl: { value: string };
+            price: { value: string };
+            typeName: { value: string };
+        };
+
+        if (!id) {
+            toast.error("Invalid item ID!", {
+                autoClose: 2000,
+                theme: "colored",
+            });
+            return;
         }
+
+        const data: UpdateItemData = {
+            id: id,
+            name: target.name.value || undefined,
+            description: target.description.value || undefined,
+            imageUrl: target.imageUrl.value || undefined,
+            price: target.price.value ? parseInt(target.price.value) : undefined,
+            typeName: target.typeName.value || undefined,
+        };
+
+        const response = await axios.put<ApiResponse>("http://localhost:3000/api/menu", data);
+        const result = response.data;
+
+        if (result) {
+            const updatedMenuItems = menuItems.map((item) =>
+                item.id === id
+                    ? {
+                          id: data.id || item.id,
+                          name: data.name || item.name,
+                          description: data.description || item.description,
+                          price: data.price || item.price,
+                          typeName: data.typeName || item.typeName,
+                          imageUrl: data.imageUrl || item.imageUrl,
+                      }
+                    : item
+            );
+            setItems(updatedMenuItems);
+
+            Swal.fire({
+                title: "Success!",
+                text: "Item updated successfully.",
+                icon: "success",
+            });
+
+            closeModal();
+        } else {
+            toast.error("Error while updating item!", {
+                autoClose: 2000,
+                theme: "colored",
+            });
+        }
+    }
 
     return <motion.div
         initial={{ opacity: 0 }}

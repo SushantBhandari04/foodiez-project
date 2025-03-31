@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { User } from "@prisma/client";
-import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 interface OrderItem {
   id: string;
@@ -27,10 +28,19 @@ interface Order {
   user: User
 }
 
-export default function Orders({ session }: { session: Session }) {
+export default function Orders() {
+  const session = useSession();
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
+  const router = useRouter();
+
+  useEffect(()=>{
+    if(!session  || session.data?.user.email!=="admin@gmail.com"){
+      router.push("/dashboard");
+      return;
+    } 
+  },[])
 
   useEffect(() => {
     async function fetchOrders() {

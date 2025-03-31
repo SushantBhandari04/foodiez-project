@@ -8,8 +8,8 @@ interface Table {
   id: string;
   userId: string;
   name: string;
-  phone: Number;
-  guests: Number;
+  phone: number;
+  guests: number;
   date: string;
   time: string;
   createdAt: string
@@ -29,6 +29,7 @@ export default function AdminBookings() {
         setLoading(false);
       } catch (e) {
         setError(true);
+        console.log(error)
         console.log(e);
       }
     }

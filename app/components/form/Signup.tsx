@@ -3,7 +3,6 @@
 import axios from "axios";
 import { useAnimation, useInView, motion } from "motion/react";
 import { signIn } from "next-auth/react";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";

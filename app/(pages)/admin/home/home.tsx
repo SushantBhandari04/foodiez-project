@@ -51,6 +51,7 @@ export default function AdminHome({
       });
       setItems(items);
     }
+    setLoading(false);
   }, [currentType]);
 
   const scrollLeft = () => {

@@ -45,9 +45,12 @@ export default async function AdminHomePage() {
     }
 
     const typesData = await fetchTypes() || [];
-    const menuItemsData = await fetchMenuItems();
+    const menuItemsData = await fetchMenuItems() || [];
 
     if (!typesData) {
+        console.log("Error");
+    }
+    if (!menuItemsData) {
         console.log("Error");
     }
 
