@@ -51,7 +51,7 @@ export default function UpdateModal() {
             typeName: target.typeName.value || undefined,
         };
 
-        const response = await axios.put<ApiResponse>("http://localhost:3000/api/menu", data);
+        const response = await axios.put<ApiResponse>(`${process.env.BACKEND_URL}/api/menu`, data);
         const result = response.data;
 
         if (result) {

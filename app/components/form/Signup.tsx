@@ -72,7 +72,7 @@ export default function Signup() {
 
         try {
             setLoading(true);
-            axios.post("http://localhost:3000/api/auth/signup", {
+            axios.post(`${process.env.BACKEND_URL}/api/auth/signup`, {
                 email,
                 password,
                 username
@@ -104,7 +104,7 @@ export default function Signup() {
     function signupWithGoogle() {
         setGoogleLoading(true);
         signIn('google', {
-            callbackUrl: "http://localhost:3000/dashboard"
+            callbackUrl: `${process.env.BACKEND_URL}/dashboard`
         }).then(() => setGoogleLoading(false));
     }
 

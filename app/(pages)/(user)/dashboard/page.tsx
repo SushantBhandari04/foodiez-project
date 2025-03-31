@@ -15,7 +15,7 @@ const CACHE_TTL = 60 * 60; // Cache for 1 hour
     }
 
     try {
-        const response = await axios.get("http://localhost:3000/api/type", {});
+        const response = await axios.get(`${process.env.BACKEND_URL}/api/type`, {});
         const data = response.data as { response: Type[] };
         setCache(cacheKey, data.response, CACHE_TTL);
         return data.response;

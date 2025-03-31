@@ -42,7 +42,7 @@ export default function Contact() {
       return;
     }
     setLoading(true);
-    const response = await axios.post("http://localhost:3000/api/book", {
+    const response = await axios.post(`${process.env.BACKEND_URL}/api/book`, {
       name: form.name.value,
       guests: parseInt(form.guests.value),
       phone: parseFloat(form.phone.value),
