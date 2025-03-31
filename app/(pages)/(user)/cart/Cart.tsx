@@ -1,5 +1,11 @@
 "use client";
 
+declare global {
+  interface Window {
+    Razorpay: any;
+  }
+}
+
 import { Session } from "next-auth";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -136,7 +142,7 @@ export default function Cart({ session }: { session: Session }) {
       const script = document.createElement("script");
       script.src = "https://checkout.razorpay.com/v1/checkout.js";
       script.onload = () => {
-        const rzp = new (window as any).Razorpay(options);
+        const rzp = new (window).Razorpay(options);
         rzp.open();
       };
       script.onerror = () => {

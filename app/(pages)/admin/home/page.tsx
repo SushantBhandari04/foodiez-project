@@ -54,5 +54,5 @@ export default async function AdminHomePage() {
         console.log("Error");
     }
 
-    return <AdminHome session={session} typesData={typesData} menuItemsData={menuItemsData || []} />;
+    return <AdminHome  typesData={typesData} menuItemsData={menuItemsData || []} />;
 }

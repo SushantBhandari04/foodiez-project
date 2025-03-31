@@ -15,7 +15,6 @@ type AdminHomeProps = {
 };
 
 export default function AdminHome({
-  session,
   typesData,
   menuItemsData,
 }: AdminHomeProps   ) {
