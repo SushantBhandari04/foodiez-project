@@ -90,7 +90,7 @@ export default function Signin() {
   function signinWithGoogle() {
     setGoogleLoading(true);
     signIn('google', {
-      callbackUrl: `${process.env.BACKEND_URL}/dashboard`
+      callbackUrl: `/dashboard`
     }).then(() => setGoogleLoading(false))
   }
 
