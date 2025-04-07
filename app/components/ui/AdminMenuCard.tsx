@@ -22,7 +22,7 @@ export default function AdminMenuCard({ menuItem }: { menuItem: MenuItem}) {
 
     async function deleteItem(id:string){
     
-        const response = await axios.delete(`${process.env.BACKEND_URL}/api/menu`,{
+        const response = await axios.delete(`/api/menu`,{
             data:{
                 id
             }
