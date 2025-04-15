@@ -21,8 +21,8 @@ export default function ProfileModal() {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.2 }}
         style={{ fontFamily: "DM Sans" }}
-        className="fixed inset-0 flex items-center justify-center   bg-opacity-90 backdrop-filter backdrop-blur-lg">
-        <div className="bg-gradient-to-b from-gray-600 to-sky-950  p-16 rounded-xl shadow-md shadow-gray-700 w-80 text-center text-white flex flex-col gap-4 min-w-96 w-fit">
+        className=" inset-0  fixed z-100 flex items-center justify-center   bg-opacity-90 backdrop-filter backdrop-blur-lg">
+        <div className="bg-gradient-to-b from-blue-900/60 to-sky-950  p-16 rounded-xl shadow-md shadow-gray-700 w-80 text-center text-white flex flex-col gap-4 min-w-96 w-fit">
             <div><ProfileButton isAdmin={isAdmin} letter={user ? (user.username ? user.username[0]?.toUpperCase() : user.name?.[0]?.toUpperCase() ?? "") : ""} /></div>
             <p className="text-xl font-medium">{user ? (user.name ? user.name : user?.username) : ""}</p>
             <p className="text-sm text-gray-400">{user?.email}</p>
