@@ -6,13 +6,13 @@ import { motion } from "framer-motion";
 
 export default function About() {
     return <motion.div
-        className="w-full font-dmsans flex flex-col gap-36 font-dmsans"
+        className="w-full font-dmsans flex flex-col gap-36"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
     >
 
-        <div className="bg-[url('/about-hero.png')] flex pl-8 w-full h-[700px] bg-cover bg-center ">
+        <motion.div initial={{width:"92%"}} animate={{width:"100%"}} transition={{duration:0.4}} className="bg-[url('/about-hero.png')] flex pl-8 w-full h-[700px] bg-cover bg-center overflow-hidden">
             <div className="mt-20 ml-20 w-2/5 flex flex-col gap-8">
                 <h1 className="text-8xl font-bold font-fredoka text-yellow-500">Foodiez</h1>
                 <h3 className="text-xl text-gray-300">Foodiez is a modern, all-in-one restaurant management platform designed to streamline operations and enhance customer experiences. Whether you&apos;re a restaurant owner, manager, or customer, Foodiez provides an intuitive and seamless way to browse menus, place orders, book tables, and manage reservations all in one place!</h3>
@@ -30,7 +30,7 @@ export default function About() {
 
 
             </div>
-        </div>
+        </motion.div>
 
         <div className="w-full flex flex-col justify-center items-center gap-16 px-20">
             <h1 className="text-5xl font-semibold font-fredoka">Perfect Place For An Exceptional Experience</h1>

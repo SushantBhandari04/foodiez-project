@@ -72,7 +72,7 @@ export default function Dashboard2({
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="w-full overfow-y-scroll no-scrollbar flex flex-col gap-40 "
+      className="w-full flex flex-col gap-40 "
     >
       <Hero />
 
@@ -80,19 +80,19 @@ export default function Dashboard2({
         <h1 className="text-5xl font-medium text-center bg-clip-text text-transparent bg-gradient-to-r  from-cyan-500 to-white via-cyan-100">
           Explore the varieties
         </h1>
-        <div className="relative flex justify-center items-center">
-          <button
+        <div className="relative flex overflow-x-hidden gap-8 py-10 MyGradient" >
+          {/* <button
             className="absolute left-4 top-1/3.5 z-100 transform -translate-y-1/2 bg-gray-300 font-bold text-xl text-black p-2 rounded-full cursor-pointer"
             onClick={scrollLeft}
           >
             &lt;
-          </button>
+          </button> */}
           <motion.div
             ref={scrollContainerRef}
-            className=" flex gap-8 justify-start overflow-x-auto no-scrollbar overflow-hidden py-8 px-16 mr-16"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            className=" flex flex-shrink-0 gap-8 "
+            initial={{ x: 0 }}
+            animate={{x:"-100%"}}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear"  }}
           >
             {typesData &&
               typesData.map((type) => (
@@ -115,18 +115,46 @@ export default function Dashboard2({
               />
             </motion.div>
           </motion.div>
-          <button
+          <motion.div
+            ref={scrollContainerRef}
+            className=" flex flex-shrink-0 gap-8 "
+            initial={{ x: 0 }}
+            animate={{x:"-100%"}}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          >
+            {typesData &&
+              typesData.map((type) => (
+                <motion.div key={type.id} whileHover={{ scale: 1.02 }}>
+                  <TypeCard
+                    onClick={() => setCurrentType(type.name)}
+                    img={type.image}
+                    title={type.name}
+                    description={type.description}
+                  />
+                </motion.div>
+              ))}
+            <motion.div whileHover={{ scale: 1.02 }}>
+              <TypeCard
+                onClick={() => setCurrentType(null)}
+                key={0}
+                img={"/all-items-image.jpg"}
+                title={"All Items"}
+                description={"Burgers, Pizzas, Paneer, Drinks, and more"}
+              />
+            </motion.div>
+          </motion.div>
+          {/* <button
             className="absolute right-4 text-xl top-1/3.5 font-bold transform -translate-y-1/2 bg-gray-300 text-black p-2 rounded-full cursor-pointer"
             onClick={scrollRight}
           >
             &gt;
-          </button>
+          </button> */}
         </div>
       </div>
 
       <motion.div
         id="menu-section"
-        className="Menu flex flex-col px-16 gap-16"
+        className="Menu flex flex-col px-8 gap-16"
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
@@ -140,7 +168,7 @@ export default function Dashboard2({
             <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-white"></div>
           </div>
         ) : (
-          <motion.div className="flex gap-12 gap-y-28 justify-center flex-wrap w-full h-full py-10">
+          <motion.div className=" gap-9 gap-y-28  w-full h-full py-10 flex flex-wrap justify-center">
             {menuItems.map((item) => (
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -148,7 +176,7 @@ export default function Dashboard2({
                 transition={{ duration: 0.5 }}
                 key={item.id + Math.random()}
                 whileHover={{ scale: 1.02 }}
-                className="w-1/5"
+                className="flex w-63"
               >
                 <MenuCard
                   menuItem={item}
