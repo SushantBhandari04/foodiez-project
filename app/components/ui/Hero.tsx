@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { CalendarIcon, ChefHatIcon, RightArrowIcon, UtensilsIcon } from "./Icons";
 import Link from "next/link";
+import RevealText from "./RevealText";
 
 export default function Hero() {
     const router = useRouter();
@@ -21,26 +22,30 @@ export default function Hero() {
         >
              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-80"></div>
             <div className="relative w-full z-10 flex flex-col gap-20 justify-center items-center">
-                <div className="flex flex-col justify-center w-full items-center gap-6 ">
+                <motion.div 
+                    initial={{y:"80%", opacity:0}}
+                    animate={{y:0, opacity:1}}
+                    transition={{duration: 0.8}}
+                className="flex flex-col justify-center w-full items-center gap-6 ">
                     <div className="bg-amber-950/70 px-5 py-2 rounded-full border-1 border-amber-700/80 text-amber-white font-medium flex gap-2 justify-center items-center">
                         <ChefHatIcon />
                         <h3>Experience Fine Dining</h3>
                     </div>
-                    <div className="flex gap-4  font-semibold text-7xl justify-center font-fredoka">
+                    <div className="flex gap-5  font-semibold text-7xl justify-center font-fredoka">
                         {/* <motion.h1 initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 1, ease: "linear" }} className="w-full text-9xl font-kaushan-script p-0 m-0 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 overflow-hidden whitespace-nowrap">Welcome To</motion.h1>
                     <motion.h1 initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 1, ease: "easeInOut", delay: 1 }} className="text-[144px] font-montez  font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-400 via-yellow-500 p-0 m-0  -translate-y-4 overflow-hidden whitespace-nowrap">
                         Foodiez
                     </motion.h1> */}
 
-                        <h1 className=" ">Welcome to</h1>
-                        <h1 className="text-amber-500">Foodiez</h1>
+                        <h1 className=" flex gap-5"><RevealText>Welcome</RevealText><RevealText>to</RevealText></h1>
+                        <h1 className="text-amber-500"><RevealText>Foodiez</RevealText></h1>
 
                     </div>
 
                     <h2 className="text-[20px] tracking-tight text-gray-300 max-w-156 text-center">Experience exceptional dining with our curated menu and seamless table booking system. Every dish tells a story.</h2>
 
 
-                </div>
+                </motion.div>
 
 
                 <div className="flex gap-16">

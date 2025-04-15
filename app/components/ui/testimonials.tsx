@@ -28,6 +28,7 @@ export default function Testimonials() {
     <motion.section
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
+      viewport={{once: true}}
       transition={{ duration: 1 }}
       className="bg-gray-900 text-white py-16 px-6 md:px-12">
       <div className="text-center">

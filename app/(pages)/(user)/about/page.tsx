@@ -12,7 +12,7 @@ export default function About() {
         transition={{ duration: 0.5 }}
     >
 
-        <motion.div initial={{width:"92%"}} animate={{width:"100%"}} transition={{duration:0.4}} className="bg-[url('/about-hero.png')] flex pl-8 w-full h-[700px] bg-cover bg-center overflow-hidden">
+        <motion.div initial={{ width: "92%" }} animate={{ width: "100%" }} transition={{ duration: 0.4 }} className="bg-[url('/about-hero.png')] flex pl-8 w-full h-[700px] bg-cover bg-center overflow-hidden">
             <div className="mt-20 ml-20 w-2/5 flex flex-col gap-8">
                 <h1 className="text-8xl font-bold font-fredoka text-yellow-500">Foodiez</h1>
                 <h3 className="text-xl text-gray-300">Foodiez is a modern, all-in-one restaurant management platform designed to streamline operations and enhance customer experiences. Whether you&apos;re a restaurant owner, manager, or customer, Foodiez provides an intuitive and seamless way to browse menus, place orders, book tables, and manage reservations all in one place!</h3>
@@ -38,12 +38,14 @@ export default function About() {
                 <motion.img
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6 }} src="/side.png" alt="" className="h-120"
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.4 }} src="/side.png" alt="" className="h-120"
                 />
                 <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    viewport={{ once: true }}
                     className="flex flex-col gap-8 text-gray-300">
                     <h3 className=" text-lg">
                         Indulge in a delightful dining experience where exceptional flavors, warm ambiance, and top-notch service come together. Whether you&apos;re here for a casual meal, a special celebration, or a relaxing time with loved ones, our restaurant promises an unforgettable experience. Savor every bite, enjoy the inviting atmosphere, and let us make every moment special for you!
@@ -66,7 +68,7 @@ export default function About() {
             </div>
         </div>
 
-        <div className="w-full flex  justify-center items-center px-20 gap-24 px-20">
+        <div className="w-full flex  justify-center items-center px-20 gap-24">
             <div className="flex flex-col gap-16    ">
                 <h1 className="text-5xl font-semibold font-fredoka">We Provide best Services</h1>
 
@@ -75,7 +77,8 @@ export default function About() {
                         <motion.div
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.4 }}
                             className="flex flex-col gap-2">
                             <img src="/Services1.png" alt="" className="h-30 w-30" />
                             <h2 className="text-xl font-semibold font-fredoka">Afternoon Tea</h2>
@@ -84,7 +87,8 @@ export default function About() {
                         <motion.div
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
+                            transition={{ duration: 0.5, delay: 0.4 }}
+                            viewport={{ once: true }}
                             className="flex flex-col gap-2">
                             <img src="/Services2.png" alt="" className="h-30 w-30" />
                             <h2 className="text-xl font-semibold font-fredoka">Wine & Cocktails</h2>
@@ -96,7 +100,8 @@ export default function About() {
                         <motion.div
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
+                            transition={{ duration: 0.5, delay: 0.4 }}
+                            viewport={{ once: true }}
                             className="flex flex-col gap-2">
                             <img src="/Services3.png" alt="" className="h-30 w-30" />
                             <h2 className="text-xl font-semibold font-fredoka">Live Music & Entertainment</h2>
@@ -105,7 +110,8 @@ export default function About() {
                         <motion.div
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
+                            transition={{ duration: 0.5, delay: 0.4 }}
+                            viewport={{ once: true }}
                             className="flex flex-col gap-2">
                             <img src="/Services4.png" alt="" className="h-30 w-30" />
                             <h2 className="text-xl font-semibold font-fredoka">Alfresco Dining</h2>
@@ -121,13 +127,15 @@ export default function About() {
         <motion.img
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            viewport={{ once: true }}
             src="/Section.png" className="px-20" />
 
         <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            viewport={{ once: true }}
             className="flex flex-col gap-24 justify-center items-center">
             <h1 className="text-5xl font-semibold font-fredoka">Meet Our Experts</h1>
             <img src="/experts.png" alt="" className="h-150" />
@@ -136,20 +144,23 @@ export default function About() {
         <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
             className="flex flex-col gap-16 justify-center items-center">
             <h1 className="text-5xl font-semibold font-fredoka">A Collection Of Unique Experiences</h1>
             <img src="/experiences.png" alt="" className="h-120" />
         </motion.div>
 
-        <motion.div
-            initial={{ opacity: 0, x: -80 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col gap-16 justify-center items-center">
-            <h1 className="text-5xl font-semibold font-fredoka">A Wide Variety of Dishes</h1>
-            <img src="/food-banner.png" alt="" className="" />
-        </motion.div>
+        <motion.img
+            initial={{ x: 0, width: 0 }}
+            whileInView={{ x: 0, width: "100%" }} // Increase width to 150%
+            transition={{ duration: 0.8, delay: 0.3, origin: 1 }}
+            viewport={{ once: true }}
+            src="/food-banner.png"
+            alt="Food Banner"
+            className=" left-0 top-0 h-72"
+            style={{ objectFit: "cover" }} // Ensure the image scales properly
+        />
 
         <div className="mt-8 px-16">
             <Testimonials />

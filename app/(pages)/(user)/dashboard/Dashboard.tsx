@@ -157,6 +157,7 @@ export default function Dashboard2({
         className="Menu flex flex-col px-8 gap-16"
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{once:true}}
         transition={{ duration: 0.5 }}
       >
         <h1 className="text-5xl font-medium text-center bg-clip-text text-transparent bg-gradient-to-r  from-cyan-500 to-white via-cyan-100">
