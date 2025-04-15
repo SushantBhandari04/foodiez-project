@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { CalendarIcon, ChefHatIcon, RightArrowIcon, UtensilsIcon } from "./Icons";
+import Link from "next/link";
 
 export default function Hero() {
     const router = useRouter();
@@ -59,7 +60,7 @@ export default function Hero() {
                         transition-all duration-300 hover:opacity-100  translate-x-2 hover:scale-y-100 hover:-translate-x-0 scale-y-120 hover:border-green-500"></span>
                     </button>
 
-                    <button className="px-8 py-3 text-xl bg-slate-800/80 hover:bg-slate-700/70 cursor-pointer hover:scale-103 transform transition  border-1 border-slate-500  text-white rounded-full">View Menu</button>
+                    <button className="px-8 py-3 text-xl bg-slate-800/80 hover:bg-slate-700/70 cursor-pointer hover:scale-103 transform transition  border-1 border-slate-500  text-white rounded-full"><Link href="#menu-section">View Menu</Link></button>
 
                 </div>
 
