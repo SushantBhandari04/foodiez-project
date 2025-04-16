@@ -4,8 +4,8 @@ import Logo from "./Logo";
 
 export default function Footer() {
     return <>
-        <div className="flex px-36 py-4 bg-[url(/footer-image.jpg)] text-white h-96 w-full  bg-cover bg-center bg-no-repeat ">
-            <div className="flex flex-col gap-12 w-full justify-left items-left m-0 p-0">
+        <div className="flex md:px-36 px-12 md:py-4 py-2 bg-[url(/footer-image.jpg)] text-white h-96 w-full  bg-cover bg-center bg-no-repeat overflow-hidden">
+            <div className="flex flex-col md:gap-12 gap-8 w-full justify-left items-left m-0 p-0">
                 <div className="w-full flex flex-col justify-center items-center gap-2">
                     <div className=" "><Logo /></div>
                     <div className="text-slate-300 flex gap-4">Designed and developed by :<h1 className="text-red-300">Dheerendra, Devang, Ranjan and Sushant</h1></div>
@@ -28,10 +28,10 @@ export default function Footer() {
                         <div className="flex"><WhatsappIcon /></div>
                     </div>
 
-                    <div className="flex justify-between w-2/3 text-gray-400">
+                    <div className="flex justify-between md:w-2/3 w-3/4 text-gray-400">
                         <p>All rights reserved</p>
 
-                        <div className="flex gap-4 ">
+                        <div className="flex md:gap-4 gap-2 ">
                             <p>Guides</p>
                             <p>Privacy Policy</p>
                             <p>Terms of Service</p>
