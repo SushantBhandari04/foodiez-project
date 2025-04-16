@@ -9,7 +9,7 @@ const RevealText = ({ children }: { children: string }) => {
     <motion.div
       initial="initial"
       whileHover="hovered"
-      className="relative block overflow-hidden whitespace-nowrap"
+      className="relative block overflow-hidden whitespace-nowrap "
     >
       {/* Top Layer */}
       <div className="relative">

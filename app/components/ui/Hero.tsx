@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-import { CalendarIcon, ChefHatIcon, RightArrowIcon, UtensilsIcon } from "./Icons";
+import { CalendarIcon, ChefHatIcon, HygieneIcon, RightArrowIcon, UtensilsIcon } from "./Icons";
 import Link from "next/link";
 import RevealText from "./RevealText";
 
@@ -20,13 +20,13 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
             className="relative flex w-full h-[750px] bg-[url('/new-hero-7.jpg')] bg-cover bg-center font-dmsans before:absolute before:inset-0 before:bg-black/40 before:backdrop-blur-2xs before:z-0"
         >
-             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-80"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-80"></div>
             <div className="relative w-full z-10 flex flex-col gap-20 justify-center items-center">
-                <motion.div 
-                    initial={{y:"80%", opacity:0}}
-                    animate={{y:0, opacity:1}}
-                    transition={{duration: 0.8}}
-                className="flex flex-col justify-center w-full items-center gap-6 ">
+                <motion.div
+                    initial={{ y: 50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8 }}
+                    className="flex flex-col justify-center w-full items-center gap-6 ">
                     <div className="bg-amber-950/70 px-5 py-2 rounded-full border-1 border-amber-700/80 text-amber-white font-medium flex gap-2 justify-center items-center">
                         <ChefHatIcon />
                         <h3>Experience Fine Dining</h3>
@@ -48,7 +48,11 @@ export default function Hero() {
                 </motion.div>
 
 
-                <div className="flex gap-16">
+                <motion.div
+                initial={{ y: "50%", opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                className="flex gap-16">
                     <button
                         onClick={() => {
                             if (!user) {
@@ -60,14 +64,14 @@ export default function Hero() {
                             else {
                                 router.push("/book")
                             }
-                        }} className="py-2 flex gap-2 px-8 rounded-full hover:translate-x-3 bg-green-600 text-xl font-semibold cursor-pointer ml-2 transition transform inset 2s  hover:border-0  justify-center items-center w-fit hover:bg-green-500">Book A Table <RightArrowIcon />
-                        <span className="absolute inset-0 border-2 border-green-600  rounded-full opacity-80 
-                        transition-all duration-300 hover:opacity-100  translate-x-2 hover:scale-y-100 hover:-translate-x-0 scale-y-120 hover:border-green-500"></span>
+                        }} className="relative z-10 py-1 h-12 flex  px-4 rounded-full hover:translate-x-3 bg-gradient-to-r from-amber-500 to-amber-900/50 hover:from-amber-400 hover:to-amber-600/60  text-lg font-semibold cursor-pointer ml-2 transition-all transform inset 2s  hover:border-0  justify-center items-center w-52 gap-2 hover:gap-3 duration:300">Book A Table <RightArrowIcon classname="hover:translate-x-5" />
+                        <span className="absolute z-0 inset-0 border-2 border-amber-500/40 hover:border-transparent  rounded-full opacity-80 
+                        transition-all duration-300 hover:opacity-100  translate-x-2 hover:scale-y-100 hover:-translate-x-0 scale-y-120 "></span>
                     </button>
 
-                    <button className="px-8 py-3 text-xl bg-slate-800/80 hover:bg-slate-700/70 cursor-pointer hover:scale-103 transform transition  border-1 border-slate-500  text-white rounded-full"><Link href="#menu-section">View Menu</Link></button>
+                    <button className="px-8 h-12  text-lg bg-slate-800/80 hover:bg-slate-700/70 cursor-pointer hover:scale-103 transform transition  border-1 border-slate-500  text-white rounded-full"><Link href="#menu-section">View Menu</Link></button>
 
-                </div>
+                </motion.div>
 
                 <div className="flex w-full items-center gap-12 justify-center mt-12">
                     <div className="flex flex-col justify-between w-108 h-40 border-1 border-gray-700 bg-slate-900 px-8 py-8 rounded-xl hover:border-amber-600 hover:scale-102 transition transform">
@@ -79,7 +83,7 @@ export default function Hero() {
                         <h4 className="text-md text-gray-400">Discover delicious meals curated just for you.</h4>
                     </div>
                     <div className="flex flex-col justify-between w-108 h-40 border-1 border-gray-700 bg-slate-900 px-8 py-8 rounded-xl hover:border-amber-600 hover:scale-102 transition transform">
-                        <div className="flex gap-2 font-semibold items-center"><CalendarIcon /><h3 className="text-2xl">Hygiene & Safety</h3></div>
+                        <div className="flex gap-2 font-semibold items-center"><HygieneIcon /><h3 className="text-2xl">Hygiene & Safety</h3></div>
                         <h4 className="text-md text-gray-400">We follow all hygiene protocols for your safety.</h4>
                     </div>
                 </div>

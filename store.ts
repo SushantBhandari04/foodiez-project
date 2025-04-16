@@ -40,5 +40,5 @@ type menuItemStore = {
 
 export const useMenuItemsStore = create<menuItemStore>((set)=>({
     menuItems: [],
-    setItems: (item: MenuItem[])=>set((state)=>({menuItems: item}))
+    setItems: (item: MenuItem[] )=>set((state)=>({menuItems: item}))
 }))
