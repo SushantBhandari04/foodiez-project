@@ -6,16 +6,16 @@ import { motion } from "framer-motion";
 
 export default function About() {
     return <motion.div
-        className="w-full font-dmsans flex flex-col lg:gap-36 md:gap-28 gap-20 overflow-x-hidden"
+        className="w-full font-dmsans flex flex-col lg:gap-36 md:gap-28 gap-20"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
     >
 
-        <motion.div initial={{ width: "92%" }} animate={{ width: "100%" }} transition={{ duration: 0.4 }} className="bg-[url('/about-hero.png')] flex lg:pl-8 md:pl-4 pl-2 w-full lg:h-[650px] md:h-[450px] h-[360px]  bg-cover bg-center overflow-hidden">
+        <motion.div initial={{ width: "92%" }} animate={{ width: "100%" }} transition={{ duration: 0.4 }} className="bg-[url('/about-hero.png')] flex lg:pl-8 md:pl-4 pl-2 w-full lg:h-[650px] md:h-[450px] h-[320px]  bg-cover bg-center overflow-hidden">
             <div className="lg:mt-20 md:mt-16 mt-8 lg:ml-12 md:ml-8 ml-2 md:w-2/5 w-1/2 flex flex-col lg:gap-8 md:gap-6 gap-4">
                 <h1 className="lg:text-8xl md:text-6xl text-4xl font-bold font-fredoka text-yellow-500">Foodiez</h1>
-                <h3 className="lg:text-xl md:text-sm text-[11px] text-gray-300">Foodiez is a modern, all-in-one restaurant management platform designed to streamline operations and enhance customer experiences. Whether you&apos;re a restaurant owner, manager, or customer, Foodiez provides an intuitive and seamless way to browse menus, place orders, book tables, and manage reservations all in one place!</h3>
+                <h3 className="lg:text-xl md:text-sm text-[10px] text-gray-300">Foodiez is a modern, all-in-one restaurant management platform designed to streamline operations and enhance customer experiences. Whether you&apos;re a restaurant owner, manager, or customer, Foodiez provides an intuitive and seamless way to browse menus, place orders, book tables, and manage reservations all in one place!</h3>
 
                 <div className="flex lg:gap-18 md:gap-12 gap-8 lg:mt-12 md:mt-8 mt-4 p-2 lg:text-md md:text-sm text-[10px]">
                     <Link href="/dashboard"><button className="lg:p-2 lg:px-6 md:px-4 md:py-1.5 px-2 py-1 lg:rounded-lg md:rounded-md rounded-sm hover:translate-x-3 bg-red-500  cursor-pointer  transition transform inset 2s hover:scale-105 hover:border-0 flex justify-centeritems-center">Order now
