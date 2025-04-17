@@ -176,14 +176,14 @@ export default function Cart({ session }: { session: Session }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="flex flex-col justify-left h-full w-full px-32 gap-6 items-center mt-12 ">
-      <h1 className="text-4xl font-semibold bg-clip-text text-transparent bg-gradient-to-r  from-cyan-400 to-gray-400 ">
+      className="flex flex-col lg:justify-left justify-center h-full w-full lg:px-32 md:px-16 px-8 gap-6 items-center lg:mt-12 md:mt-8 mt-4">
+      <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r  from-cyan-400 to-gray-400 ">
         Cart
       </h1>
       <br />
 
       {loading ? (
-        <div className="flex items-center justify-center min-h-[200px]">
+        <div className="flex  items-center justify-center min-h-[200px]">
           <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-gray-900"></div>
         </div>
       ) : (
@@ -191,8 +191,8 @@ export default function Cart({ session }: { session: Session }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="flex w-full gap-12 h-full ">
-          <div className="flex flex-col gap-8 w-2/3">
+          className="flex lg:flex-row flex-col lg:justify-center md:gap-28 gap-24 w-full items-center lg:items-start  lg:gap-28 h-full ">
+          <div className="flex flex-col lg:gap-8 md:gap-6 gap-4 w-full justify-center items-center">
             {items.length > 0 ? (
               items.map((item: OrderItem) => (
                 <CartItem
@@ -218,17 +218,17 @@ export default function Cart({ session }: { session: Session }) {
             )}
           </div>
 
-          <div className="flex flex-col bg-blue-50 w-1/3 h-fit rounded-lg text-center gap-12 hover:scale-102 transition transform">
-            <h1 className="text-3xl w-full bg-blue-1000 p-4 flex justify-center items-center rounded-t-lg">
+          <div className="flex flex-col bg-blue-50  lg:w-[650px] md:w-[500px] w-[420px] h-fit rounded-lg text-center md:gap-12 gap-6 hover:scale-102 transition transform">
+            <h1 className="lg:text-3xl md:text-2xl text-lg w-full bg-blue-1000 lg:p-4 md:p-3 p-2 flex justify-center items-center rounded-t-lg">
               Summary
             </h1>
             <div className="flex flex-col gap-4 w-full p-8">
-              <div className="flex justify-between text-xl">
+              <div className="flex justify-between lg:text-xl md:text-lg text-md">
                 <h1>Total quantity</h1>
                 <h1 className="text-white">{totalQuantity}</h1>
               </div>
               <hr className="border-gray-300" />
-              <div className="flex justify-between text-xl">
+              <div className="flex justify-between lg:text-xl md:text-lg text-md">
                 <h1>Total</h1>
                 <h1 className="flex gap-1">
                   <p className="text-red-1000">Rs.</p> {totalPrice}
@@ -237,7 +237,7 @@ export default function Cart({ session }: { session: Session }) {
             </div>
 
             <button
-              className="bg-green-500 px-4 py-3 rounded-b-lg  text-white font-medium text-lg w-full mt-4 hover:bg-green-600 cursor-pointer"
+              className="bg-green-500 md:px-4 md:py-3 px-3 py-2 rounded-b-lg  text-white font-medium md:text-lg text-md w-full mt-4 hover:bg-green-600 cursor-pointer"
               onClick={handleCheckout}
             >
               Checkout

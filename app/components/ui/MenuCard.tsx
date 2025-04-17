@@ -5,7 +5,7 @@ import {motion} from "framer-motion"
 
 export default function MenuCard({ menuItem, onClick }: { menuItem: MenuItem; onClick?: () => void }) {
   return (
-    <div className="flex flex-col md:gap-4 gap-2 bg-gradient-to-b from-gray-500/80 to-purple-1000/70 md:rounded-2xl rounded-xl md:pb-0 pb-4 hover:bg-gray-1000 hover:cursor-pointer hover:scale-103 transition-all transform sm:h-72 w-72 md:w-full md:h-full">
+    <div className="flex flex-col md:gap-4 gap-2 bg-gradient-to-b from-gray-500/80 to-purple-1000/70 md:rounded-2xl rounded-xl md:pb-0 pb-4 hover:bg-gray-1000 hover:cursor-pointer hover:scale-102 transition-all transform sm:h-72 w-72 md:w-full md:h-full">
       <img src={menuItem.imageUrl} alt="Image" className="h-32  rounded-t-xl" />
       <div className="flex flex-col justify-between md:gap-6 gap-4 h-full px-5 ">
         <div className="flex flex-col gap-2"> 
