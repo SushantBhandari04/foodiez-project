@@ -95,7 +95,7 @@ export default function Dashboard2({
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="w-full box-border flex flex-col md:gap-40 sm:gap-28 gap-20 m-0 p-0 overflow-hidden"
+      className="w-full box-border flex flex-col lg:gap-40 md:gap-32 sm:gap-28 gap-20 m-0 p-0 overflow-hidden"
     >
 
       {/* Hero Section */}
@@ -113,12 +113,12 @@ export default function Dashboard2({
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="md:text-5xl sm:text-4xl text-3xl font-medium text-center bg-clip-text text-transparent bg-gradient-to-r  from-cyan-500 to-white via-cyan-100">
+        <h1 className="lg:text-5xl sm:text-4xl text-3xl font-medium text-center bg-clip-text text-transparent bg-gradient-to-r  from-cyan-500 to-white via-cyan-100">
           {currentType == null ? "All Items" : `${currentType}`}
         </h1>
 
         {/* Search bar */}
-        <div className="relative w-full sm:w-2xl md:w-4xl mx-4 bg-indigo-800/20 ">
+        <div className="relative w-full sm:max-w-2xl md:max-w-4xl mx-4 bg-indigo-800/20 ">
           <SearchIcon classname="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-400 md:h-5 h-4" />
           <input
             type="text"

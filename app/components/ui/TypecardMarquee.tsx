@@ -12,7 +12,7 @@ type TypecardMarqueeProps = {
 export default function TypecardMarquee({ scrollContainerRef, typesData, setCurrentType }: TypecardMarqueeProps) {
     return (
         <div className="flex flex-col md:gap-16 gap-8">
-            <h1 className="md:text-5xl sm:text-4xl text-3xl font-medium text-center bg-clip-text text-transparent bg-gradient-to-r  from-cyan-500 to-white via-cyan-100">
+            <h1 className="lg:text-5xl sm:text-4xl text-3xl font-medium text-center bg-clip-text text-transparent bg-gradient-to-r  from-cyan-500 to-white via-cyan-100">
                 Explore the varieties
             </h1>
             <div className="relative flex overflow-x-hidden gap-8 py-10 MyGradient" >

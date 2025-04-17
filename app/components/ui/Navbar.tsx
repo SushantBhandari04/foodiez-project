@@ -9,7 +9,7 @@ import LoginButton from "./LoginButton";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { AboutIcon, CartIcon, ContactIcon, CrossIcon, HamburgerIcon, HomeIcon, MenuIcon } from "./Icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
     const session = useSession();
@@ -19,6 +19,25 @@ export default function Navbar() {
 
     const isAdmin = user?.email === "admin@gmail.com" ? true : false
 
+     // Monitor screen size and update `open` state
+     useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 1024) {
+                setOpen(false); // Close the menu on large screens
+            }
+        };
+
+        // Add event listener
+        window.addEventListener("resize", handleResize);
+
+        // Initial check
+        handleResize();
+
+        // Clean up event listener
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
     function getMenuClasses() {
         let menuClasses = [];
@@ -26,27 +45,28 @@ export default function Navbar() {
         if (open) {
             menuClasses = [
                 "flex",
+                "text-2xl",
                 "flex-col",
-                "w-full",
-                "gap-2",
+                "gap-3",
                 "absolute",
                 "left-0",
                 "w-full",
-                "p-2",
-                "top-11",
+                "lg:hidden",
+                "p-4",
+                "top-11 md:top-13",
                 " bg-gradient-to-b from-indigo-950/95 to-gray-950",
             ]
         }
         else {
-            menuClasses.push("md:flex hidden  gap-3 justify-center items-center")
+            menuClasses.push("lg:flex hidden  gap-3 justify-center items-center")
         }
 
         return menuClasses.join(" ");
     }
 
-    return <div className="w-full overflow-hidden  flex justify-between lg:px-20 md:px-16 px-4 md:py-3 py-2 ">
+    return <div className="w-full overflow-hidden  flex justify-between lg:px-20 md:px-16 px-4 lg:py-3 py-2 ">
         <Logo />
-        <div className={getMenuClasses()}>
+        <div className={getMenuClasses() }>
             <Link href="/dashboard"><NavbarTags title="Home" icon={<HomeIcon />} onClick={() => setOpen(false)} /></Link>
             <Link href="/about"><NavbarTags title="About" icon={<AboutIcon />} onClick={() => setOpen(false)} /></Link>
             <Link href="/dashboard#menu-section"><NavbarTags title="Menu" icon={<MenuIcon />} onClick={() => setOpen(false)} /></Link>
@@ -64,7 +84,7 @@ export default function Navbar() {
                 }
             }}><NavbarTags title="Cart" icon={<CartIcon />} /></div>
 
-            <div className="cursor-pointer h-9 px-4 md:border-2 text-sm text-green-500 border-green-500 hover:bg-green-500 flex justify-center items-center transition transform hover:text-white rounded-3xl"
+            <div className="cursor-pointer h-9 px-4 lg:border-2 lg:text-sm text-[17px] text-green-500 border-green-500 lg:hover:bg-green-500 hover:bg-green-500/60 flex justify-center items-center transition transform hover:text-white rounded-3xl"
                 onClick={() => {
                     setOpen(false)
                     if (!user) {
@@ -79,19 +99,19 @@ export default function Navbar() {
                 }}><h4>Book A Table</h4></div>
 
 
-            {user && <div className="hidden md:block"><ProfileButton isAdmin={isAdmin} letter={user.name ? user.name[0].toUpperCase() : user.username[0].toUpperCase()} /></div>}
-            {!user && <div className="hidden md:flex"><Link href="/signin"><LoginButton /></Link></div>}
+            {user && <div className="hidden lg:block"><ProfileButton isAdmin={isAdmin} letter={user.name ? user.name[0].toUpperCase() : user.username[0].toUpperCase()} /></div>}
+            {!user && <div className="hidden lg:flex"><Link href="/signin"><LoginButton /></Link></div>}
         </div>
 
-        <div className="flex md:hidden gap-1 justify-center items-center">
-            {user && <div className="md:hidden block"><ProfileButton classname="mr-4" isAdmin={isAdmin} letter={user.name ? user.name[0].toUpperCase() : user.username[0].toUpperCase()} /></div>}
+        <div className="flex lg:hidden gap-1 justify-center items-center">
+            {user && <div className="lg:hidden block"><ProfileButton classname="mr-4" isAdmin={isAdmin} letter={user.name ? user.name[0].toUpperCase() : user.username[0].toUpperCase()} /></div>}
 
-            {!user && <div className="md:hidden flex"><Link href="/signin"><LoginButton classname="hover:underline" /></Link></div>}
+            {!user && <div className="lg:hidden flex"><Link href="/signin"><LoginButton classname="hover:underline" /></Link></div>}
             <button
-                className="cursor-pointer"
+                className="cursor-pointer p-2 hover:bg-gray-600/60 text-gray-400 rounded-md hover:text-white"
                 onClick={() => setOpen(!open)}
             >
-                {!open ? <HamburgerIcon /> : <CrossIcon />}
+                {!open ? <HamburgerIcon classname="" /> : <CrossIcon />}
             </button>
         </div>
     </div>
