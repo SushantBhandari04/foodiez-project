@@ -66,12 +66,12 @@ export default function Contact() {
   }
 
   return (
-    <div className='flex flex-col lg:gap-8 gap-4 w-full lg:p-8 md:p-6 p-4 overflow-x-hidden'>
+    <div className='flex flex-col lg:gap-8 gap-4 w-full lg:p-8 md:p-6 p-4 overflow-x-hidden justify-center items-center'>
       <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r text-center w-full  from-cyan-400 to-gray-400 ">
         Book A Table
       </h1>
 
-      <div className='flex w-full justify-center items-center'>
+      <div className='flex w-full justify-center items-center lg:max-w-400 md:max-w-180 max-w-130'>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -84,7 +84,7 @@ export default function Contact() {
             </div>
             <div className='flex md:flex-row flex-col md:gap-4 gap-6 w-full '>
               <div className="flex flex-col gap-2 justify-center w-full">
-                <input type="text" name="name" required placeholder="Full Name" className="border-3 border-gray-400 bg-gray-900   text-gray-100 md:px-4 md:py-3 px-3 py-2 rounded-md" />
+                <input type="text" name="name" required placeholder="Full Name" className="w-full border-3 border-gray-400 bg-gray-900   text-gray-100 md:px-4 md:py-3 px-3 py-2 rounded-md" />
               </div>
               <div className="flex flex-col gap-2 justify-center w-full">
                 <input type="text" name="phone" onChange={()=>setPhoneError(false)} required placeholder="Phone No" className="border-3 border-gray-400 bg-gray-900   text-gray-100 md:px-4 md:py-3 px-3 py-2 rounded-md" />
