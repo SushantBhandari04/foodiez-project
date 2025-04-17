@@ -22,13 +22,13 @@ export default function ProfileModal() {
         transition={{ duration: 0.2 }}
         style={{ fontFamily: "DM Sans" }}
         className=" inset-0  fixed z-100 flex items-center justify-center   bg-opacity-90 backdrop-filter backdrop-blur-lg">
-        <div className="bg-gradient-to-b from-blue-900/60 to-sky-950  p-16 rounded-xl shadow-md shadow-gray-700 w-80 text-center text-white flex flex-col gap-4 min-w-96">
+        <div className="bg-gradient-to-b from-blue-900/60 to-sky-950  md:p-16 px-12 py-8 rounded-xl shadow-md shadow-gray-700 w-84 text-center text-white flex flex-col md:gap-4 gap-2 md:min-w-96">
             <div>
                 <button className={` cursor-pointer text-white px-4 py-2  justify-center items-center  rounded-full ${isAdmin ? 'bg-orange-500 hover:scale-105 hover:bg-red-600' : 'bg-green-500 hover:scale-105 hover:bg-green-600'}`}> {user ? (user.username ? user.username[0]?.toUpperCase() : user.name?.[0]?.toUpperCase() ?? "") : ""}</button>
             </div>
             <p className="text-xl font-medium">{user ? (user.name ? user.name : user?.username) : ""}</p>
-            <p className="text-sm text-gray-400">{user?.email}</p>
-            <div className="flex flex-col gap-6 mt-12">
+            <p className="md:text-sm text-xs text-gray-400">{user?.email}</p>
+            <div className="flex flex-col gap-6 md:mt-12 mt-8 md:text-md text-sm">
                 {user?.email !== "admin@gmail.com" && <button
                     className="px-4 cursor-pointer py-2 bg-green-500 hover:bg-green-600 rounded-md text-white w-full"
                     onClick={() => {

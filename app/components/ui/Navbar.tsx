@@ -45,15 +45,16 @@ export default function Navbar() {
         if (open) {
             menuClasses = [
                 "flex",
+                
                 "text-2xl",
                 "flex-col",
-                "gap-3",
+                "gap-4",
                 "absolute",
                 "left-0",
                 "w-full",
                 "lg:hidden",
                 "p-4",
-                "top-11 md:top-13",
+                "top-[51px] md:top-13",
                 " bg-gradient-to-b from-indigo-950/95 to-gray-950",
             ]
         }
@@ -64,7 +65,7 @@ export default function Navbar() {
         return menuClasses.join(" ");
     }
 
-    return <div className="w-full overflow-hidden  flex justify-between lg:px-20 md:px-16 px-4 lg:py-3 py-2 ">
+    return <div className="w-full overflow-hidden  flex justify-between lg:px-20 md:px-8 px-4 lg:py-3 py-2 ">
         <Logo />
         <div className={getMenuClasses() }>
             <Link href="/dashboard"><NavbarTags title="Home" icon={<HomeIcon />} onClick={() => setOpen(false)} /></Link>
@@ -84,7 +85,7 @@ export default function Navbar() {
                 }
             }}><NavbarTags title="Cart" icon={<CartIcon />} /></div>
 
-            <div className="cursor-pointer h-9 px-4 lg:border-2 lg:text-sm text-[17px] text-green-500 border-green-500 lg:hover:bg-green-500 hover:bg-green-500/60 flex justify-center items-center transition transform hover:text-white rounded-3xl"
+            <div className="cursor-pointer h-9 px-4 mx-8 lg:mx-0 lg:border-2 lg:text-sm text-[17px] text-green-500 border-green-500 lg:hover:bg-green-500 hover:bg-green-500/60 flex justify-center items-center transition transform hover:text-white lg:rounded-3xl rounded-lg"
                 onClick={() => {
                     setOpen(false)
                     if (!user) {
@@ -103,8 +104,8 @@ export default function Navbar() {
             {!user && <div className="hidden lg:flex"><Link href="/signin"><LoginButton /></Link></div>}
         </div>
 
-        <div className="flex lg:hidden gap-1 justify-center items-center">
-            {user && <div className="lg:hidden block"><ProfileButton classname="mr-4" isAdmin={isAdmin} letter={user.name ? user.name[0].toUpperCase() : user.username[0].toUpperCase()} /></div>}
+        <div className="flex lg:hidden justify-center items-center">
+            {user && <div className="lg:hidden block"><ProfileButton classname="mr-2" isAdmin={isAdmin} letter={user.name ? user.name[0].toUpperCase() : user.username[0].toUpperCase()} /></div>}
 
             {!user && <div className="lg:hidden flex"><Link href="/signin"><LoginButton classname="hover:underline" /></Link></div>}
             <button

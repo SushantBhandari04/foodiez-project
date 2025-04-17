@@ -31,6 +31,7 @@ export default function Dashboard2({
   const { menuItems, setItems } = useMenuItemsStore((state) => state);
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const marqueeRef = useRef<HTMLDivElement>(null);
 
   // animation
   const ref = useRef(null);
@@ -102,8 +103,13 @@ export default function Dashboard2({
       <Hero />
 
       {/* TypesCard Section */}
-      <TypecardMarquee scrollContainerRef={scrollContainerRef} setCurrentType={setCurrentType} typesData={typesData} />
+      {/* <TypecardMarquee scrollContainerRef={scrollContainerRef} setCurrentType={setCurrentType} typesData={typesData} /> */}
 
+<TypecardMarquee
+    scrollContainerRef={marqueeRef}
+    typesData={typesData}
+    setCurrentType={setCurrentType}
+/>
 
       <motion.div
         id="menu-section"

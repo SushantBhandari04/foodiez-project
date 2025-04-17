@@ -15,7 +15,7 @@ export default function TypecardMarquee({ scrollContainerRef, typesData, setCurr
             <h1 className="lg:text-5xl sm:text-4xl text-3xl font-medium text-center bg-clip-text text-transparent bg-gradient-to-r  from-cyan-500 to-white via-cyan-100">
                 Explore the varieties
             </h1>
-            <div className="relative flex overflow-x-hidden gap-8 py-10 MyGradient" >
+            <div className="relative flex overflow-x-hidden md:gap-8 gap-6 py-10 MyGradient" >
                 {/* <button
         className="absolute left-4 top-1/3.5 z-100 transform -translate-y-1/2 bg-gray-300 font-bold text-xl text-black p-2 rounded-full cursor-pointer"
         onClick={scrollLeft}
@@ -24,10 +24,11 @@ export default function TypecardMarquee({ scrollContainerRef, typesData, setCurr
       </button> */}
                 <motion.div
                     ref={scrollContainerRef}
-                    className=" flex flex-shrink-0 gap-8 "
+                    className=" flex flex-shrink-0 md:gap-8 gap-6 "
                     initial={{ x: 0 }}
                     animate={{ x: "-100%" }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    
                 >
                     {typesData &&
                         typesData.map((type) => (
@@ -52,7 +53,7 @@ export default function TypecardMarquee({ scrollContainerRef, typesData, setCurr
                 </motion.div>
                 <motion.div
                     ref={scrollContainerRef}
-                    className=" flex flex-shrink-0 gap-8 "
+                    className=" flex flex-shrink-0 md:gap-8 gap-6 "
                     initial={{ x: 0 }}
                     animate={{ x: "-100%" }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
