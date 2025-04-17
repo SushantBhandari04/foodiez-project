@@ -142,7 +142,7 @@ export default function Dashboard2({
           <motion.div className=" gap-9 lg:gap-y-28 md:gap-y-24 gap-y-16  w-full h-full py-10 flex flex-wrap justify-center items-center">
             {menuItems.map((item) => (
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 key={item.id + Math.random()}

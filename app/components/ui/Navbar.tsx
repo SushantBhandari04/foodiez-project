@@ -8,7 +8,7 @@ import { useSession } from "next-auth/react";
 import LoginButton from "./LoginButton";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
-import { AboutIcon, CartIcon, ContactIcon, CrossIcon, HamburgerIcon, HomeIcon, MenuIcon } from "./Icons";
+import { AboutIcon, CartIcon, ContactIcon, CrossIcon, HamburgerIcon, HomeIcon, MenuIcon, TableIcon } from "./Icons";
 import { useEffect, useState } from "react";
 
 export default function Navbar() {
@@ -46,7 +46,7 @@ export default function Navbar() {
             menuClasses = [
                 "flex",
                 
-                "text-2xl",
+                "text-xl",
                 "flex-col",
                 "gap-4",
                 "absolute",
@@ -85,7 +85,7 @@ export default function Navbar() {
                 }
             }}><NavbarTags title="Cart" icon={<CartIcon />} /></div>
 
-            <div className="cursor-pointer h-9 px-4 mx-8 lg:mx-0 lg:border-2 lg:text-sm text-[17px] text-green-500 border-green-500 lg:hover:bg-green-500 hover:bg-green-500/60 flex justify-center items-center transition transform hover:text-white lg:rounded-3xl rounded-lg"
+            <div className=" gap-2 cursor-pointer h-9 px-4 mx-8 lg:mx-0 lg:border-2 lg:text-sm text-[14px] text-green-500 border-green-500 lg:hover:bg-green-500 hover:bg-green-500/60 flex justify-center items-center transition transform hover:text-white lg:rounded-3xl rounded-lg"
                 onClick={() => {
                     setOpen(false)
                     if (!user) {
@@ -97,7 +97,8 @@ export default function Navbar() {
                     else {
                         router.push("/book")
                     }
-                }}><h4>Book A Table</h4></div>
+                }}><TableIcon/>
+                    <h4>Book A Table</h4></div>
 
 
             {user && <div className="hidden lg:block"><ProfileButton isAdmin={isAdmin} letter={user.name ? user.name[0].toUpperCase() : user.username[0].toUpperCase()} /></div>}

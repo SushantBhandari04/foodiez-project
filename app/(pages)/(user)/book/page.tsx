@@ -66,8 +66,8 @@ export default function Contact() {
   }
 
   return (
-    <div className='flex flex-col gap-8 w-full p-8 '>
-      <h1 className="text-4xl font-semibold bg-clip-text text-transparent bg-gradient-to-r text-center w-full  from-cyan-400 to-gray-400 ">
+    <div className='flex flex-col lg:gap-8 gap-4 w-full lg:p-8 md:p-6 p-4 overflow-x-hidden'>
+      <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r text-center w-full  from-cyan-400 to-gray-400 ">
         Book A Table
       </h1>
 
@@ -76,31 +76,31 @@ export default function Contact() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="w-full flex flex-col gap-8 p-8"
+          className="w-full flex flex-col gap-8 lg:p-8 md:p-6 p-2"
         >
-          <form onSubmit={handleSubmit} className="flex flex-col gap-12 justify-center items-center w-1/3 p-12 rounded-xl w-full">
+          <form onSubmit={handleSubmit} className="lg:text-md text-sm flex flex-col lg:gap-12 md:gap-8 gap-6 justify-center items-center  lg:p-12 md:p-8 p-4 rounded-xl w-full">
             <div className="flex flex-col gap-2 justify-center w-full">
-              <input type="number" name="guests" required placeholder="Number of guest" className="border-3 border-gray-400 bg-gray-900 text-md  text-gray-100 px-4 py-3 rounded-md" />
+              <input type="number" name="guests" required placeholder="Number of guest" className="border-3 border-gray-400 bg-gray-900 text-md  text-gray-100 md:px-4 md:py-3 px-3 py-2 rounded-md" />
             </div>
-            <div className='flex gap-4 w-full'>
+            <div className='flex md:flex-row flex-col md:gap-4 gap-6 w-full '>
               <div className="flex flex-col gap-2 justify-center w-full">
-                <input type="text" name="name" required placeholder="Full Name" className="border-3 border-gray-400 bg-gray-900 text-md  text-gray-100 px-4 py-3 rounded-md" />
+                <input type="text" name="name" required placeholder="Full Name" className="border-3 border-gray-400 bg-gray-900   text-gray-100 md:px-4 md:py-3 px-3 py-2 rounded-md" />
               </div>
               <div className="flex flex-col gap-2 justify-center w-full">
-                <input type="text" name="phone" onChange={()=>setPhoneError(false)} required placeholder="Phone No" className="border-3 border-gray-400 bg-gray-900 text-md  text-gray-100 px-4 py-3 rounded-md" />
+                <input type="text" name="phone" onChange={()=>setPhoneError(false)} required placeholder="Phone No" className="border-3 border-gray-400 bg-gray-900   text-gray-100 md:px-4 md:py-3 px-3 py-2 rounded-md" />
                 {phoneError && <p className='text-red-500'>Please enter a vaild number.</p>}
               </div>
             </div>
-            <div className='flex gap-4 w-full'>
+            <div className='flex md:flex-row flex-col md:gap-4 gap-6 w-full'>
               <div className="flex flex-col gap-2 justify-center w-full">
-                <input type="date" name="date" required placeholder="Date" className="border-3 border-gray-400 bg-gray-900 text-md  text-gray-100 px-4 py-3 rounded-md" min={minDate} />
+                <input type="date" name="date" required placeholder="Date" className="border-3 border-gray-400 bg-gray-900   text-gray-300/80 md:px-4 md:py-3 px-3 py-2 rounded-md" min={minDate} />
               </div>
               <div className="flex flex-col gap-2 justify-center w-full">
-                <input type="time" name="time" required placeholder="Time" className="border-3 border-gray-400 bg-gray-900 text-md  text-gray-100 px-4 py-3 rounded-md" min={minTime} />
+                <input type="time" name="time" required placeholder="Time" className="border-3 border-gray-400 bg-gray-900   text-gray-300/80 md:px-4 md:py-3 px-3 py-2 rounded-md" min={minTime} />
               </div>
             </div>
 
-            <button type="submit" className="w-full p-2 py-3 font-semibold  bg-blue-600 rounded-lg hover:bg-blue-700 transition transform flex justify-center items-center hover:scale-105 cursor-pointer">
+            <button type="submit" className="w-full md:px-2 md:py-3 py-2 md:font-semibold font-medium  bg-blue-600 rounded-lg hover:bg-blue-700 transition transform flex justify-center items-center hover:scale-105 cursor-pointer">
             {loading ? (
               <>
                 <svg
@@ -131,7 +131,7 @@ export default function Contact() {
           </form>
         </motion.div>
         <motion.div>
-          <img src="/book-table2.png" alt="" className='w-400' />
+          <img src="/book-table2.png" alt="" className='w-400 lg:flex hidden' />
         </motion.div>
       </div>
     </div>

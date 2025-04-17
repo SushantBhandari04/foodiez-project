@@ -31,7 +31,7 @@ export const CartItem: FC<CartItemProps> = ({
 }) => {
 
   return <div className="flex lg:max-w-[700px] md:max-w-[700px] max-w-[500px] justify-center items-center gap-4 w-full bg-blue-100 md:px-4 px-3 lg:py-3 md:py-3 py-2 md:rounded-lg rounded-md lg:h-32 md:h-28 h-24">
-    <img src={imageUrl} alt="" className="lg:w-36 lg:h-20 md:w-32 md:h-16 w-16 h-12 rounded-lg" />
+   <div> <img src={imageUrl} alt="" className="flex lg:w-36 lg:h-20 md:w-32 md:h-16 w-20 h-13 rounded-lg" /></div>
     <div className="flex justify-between w-full h-full">
       <div className="flex  justify-between items-center ">
         <div className="flex flex-col md:gap-2 gap-1">
@@ -42,7 +42,7 @@ export const CartItem: FC<CartItemProps> = ({
 
       </div>
       <div className="flex flex-col justify-between items-end h-full  w-fit lg:text-[14px] md:text-[13px] text-xs">
-        <div className="flex lg:w-4 md:w-[12px] w-[10px]"><DeleteIcon onClick={() => {
+        <div className="flex lg:w-4 md:w-[12px] w-[11px]"><DeleteIcon onClick={() => {
           onDeleteItem(id)
           deleteCompleteItem(id)
         }} /></div>

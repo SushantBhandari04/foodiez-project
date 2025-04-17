@@ -19,7 +19,7 @@ export default function UserLayout({ children }: { children: ReactNode }) { // N
         exit={{ opacity: 0 }}
         transition={{ duration: 0.8 }}
         style={{ fontFamily: "DM Sans" }}
-        className="bg-black text-white w-full flex flex-col gap-36 items-center justify-center"
+        className="bg-black text-white w-full flex flex-col lg:gap-36 md:gap-28 gap-20 items-center justify-center"
       >
         <motion.div
           initial={{ y: -50, opacity: 0 }}

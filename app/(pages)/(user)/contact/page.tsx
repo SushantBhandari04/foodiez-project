@@ -3,10 +3,13 @@
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import { motion } from 'framer-motion';
-import React from 'react'; // Ensure React is imported for type definitions
+import React, { useState } from 'react'; // Ensure React is imported for type definitions
 
 export default function Contact() {
+    const [loading, setLoading]  = useState<boolean>(false);
+
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) { // Updated type
+        setLoading(true);
         e.preventDefault();
         const form = e.currentTarget; // Access form elements safely
         const response = await fetch("https://api.web3forms.com/submit", {
@@ -36,6 +39,7 @@ export default function Contact() {
                 theme: "colored"
             });
         }
+        setLoading(false);
     }
 
     return (
@@ -43,24 +47,52 @@ export default function Contact() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="w-full h-full flex flex-col gap-8 justify-center items-center p-8">
-            <h1 className="text-4xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-gray-400">
+            className="w-full h-full flex flex-col lg:gap-16 md:gap-10 gap-8 justify-center items-center lg:p-8 p-6">
+            <h1 className="lg:text-4xl md:text-2xl text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-gray-400">
                 Contact Us
             </h1>
-            <form onSubmit={handleSubmit} className="bg-gradient-to-b from-blue-950 to-violet-950 flex flex-col gap-8 justify-center items-center w-1/3 p-12 rounded-xl">
-                <div className="flex flex-col gap-2 justify-center w-full">
-                    <label htmlFor="name" className="text-lg">Name</label>
-                    <input type="text" name="name" required placeholder="Your name" className="bg-gray-100 text-black p-2 rounded-md" />
+            <form onSubmit={handleSubmit} className="w-full bg-gradient-to-b from-blue-950 to-violet-950 flex flex-col gap-8 justify-center items-center lg:max-w-130 md:max-w-115 max-w-100 lg:p-12 md:p-10 p-8 rounded-xl">
+                <div className="flex flex-col gap-2 justify-center w-full lg:text-lg md:text-md text-sm">
+                    <label htmlFor="name" className=" ">Name</label>
+                    <input type="text" name="name" required placeholder="Your name" className="bg-gray-100/80 focus:bg-white text-black p-2 rounded-md lg:text-md md:text-sm text-xs" />
                 </div>
-                <div className="flex flex-col gap-2 justify-center w-full">
-                    <label htmlFor="email" className="text-lg">Email</label>
-                    <input type="email" name="email" required placeholder="email@example.com" className="bg-gray-100 text-black p-2 rounded-md" />
+                <div className="flex flex-col gap-2 justify-center w-full lg:text-lg md:text-md text-sm">
+                    <label htmlFor="email" className="">Email</label>
+                    <input type="email" name="email" required placeholder="email@example.com" className="bg-gray-100/80 focus:bg-white text-black p-2 rounded-md lg:text-md md:text-sm text-xs" />
                 </div>
-                <div className="flex flex-col w-full gap-2 justify-center">
-                    <label htmlFor="message" className="text-lg">Message</label>
-                    <textarea name="message" rows={5} placeholder="Enter Message" className="bg-gray-100 text-black p-2 rounded-md"></textarea>
+                <div className="flex flex-col w-full gap-2 justify-center lg:text-lg md:text-md text-sm">
+                    <label htmlFor="message" className="">Message</label>
+                    <textarea name="message" rows={5} placeholder="Enter Message" className="bg-gray-100/80 focus:bg-white text-black p-2 rounded-md lg:text-md md:text-sm text-xs"></textarea>
                 </div>
-                <button type="submit" className="w-full p-2 bg-blue-600 rounded-lg hover:bg-blue-700 transition transform flex justify-center items-center hover:scale-105 cursor-pointer">Submit Form</button>
+                <button type="submit" className="lg:text-md text-sm w-full p-2 bg-blue-600 rounded-lg hover:bg-blue-700 transition transform flex justify-center items-center hover:scale-105 cursor-pointer">
+                {loading ? (
+              <>
+                <svg
+                  className="animate-spin h-5 w-5 mr-2 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8H4z"
+                  ></path>
+                </svg>
+                Sending...
+              </>
+            ) : (
+              "Send Message"
+            )}
+                </button>
             </form>
         </motion.div>
     );

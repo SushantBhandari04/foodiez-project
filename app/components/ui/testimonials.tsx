@@ -30,28 +30,28 @@ export default function Testimonials() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{once: true}}
       transition={{ duration: 1 }}
-      className="bg-gray-900 text-white py-16 px-6 md:px-12">
+      className="bg-gray-900 text-white lg:py-16 lg:px-6 md:px-12 md:py-12 px-6 py-8 rounded-md lg:rounded-xl">
       <div className="text-center">
         <p className="text-sm font-bold text-yellow-500 uppercase">Features</p>
-        <h2 className="text-3xl md:text-4xl font-bold mt-2">Why choose Foodiez?</h2>
-        <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mt-2">Why choose Foodiez?</h2>
+        <p className="text-gray-400 lg:mt-6 md:mt-4 mt-2 max-w-2xl mx-auto lg:text-md md:text-sm text-xs">
           Foodiez makes restaurant management seamless with a user-friendly experience.
           Whether you are a restaurant owner or a customer, we offer a smooth and efficient dining experience.
         </p>
       </div>
 
-      <div className="mt-16 grid md:grid-cols-3 gap-6">
+      <div className="lg:mt-16 md:mt-12 mt-8 grid md:grid-cols-3 gap-6">
         {testimonials.map((testimonial, index) => (
           <div key={index} className="bg-gray-800 p-6 rounded-lg shadow-lg relative">
-            <FaQuoteLeft className="absolute -top-4 left-4 text-yellow-500 text-2xl" />
-            <p className="text-gray-300 italic">&quot;{testimonial.text}&quot;</p>
+            <FaQuoteLeft className="absolute md:-top-4 -top-2 left-4 text-yellow-500 lg:text-2xl md:text-xl text-lg" />
+            <p className="text-gray-300 italic lg:text-md text-sm">&quot;{testimonial.text}&quot;</p>
             <div className="mt-4 flex items-center gap-2">
               {[...Array(testimonial.rating)].map((_, i) => (
                 <FaStar key={i} className="text-yellow-500" />
               ))}
             </div>
-            <p className="font-bold mt-2">{testimonial.name}</p>
-            <p className="text-gray-400 text-sm">{testimonial.role}</p>
+            <p className="font-bold mt-2 lg:text-md text-sm">{testimonial.name}</p>
+            <p className="text-gray-400  lg:text-md text-xs">{testimonial.role}</p>
           </div>
         ))}
       </div>
