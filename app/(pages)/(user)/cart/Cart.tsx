@@ -218,7 +218,7 @@ export default function Cart({ session }: { session: Session }) {
             )}
           </div>
 
-          <div className="flex flex-col bg-blue-50  lg:w-[650px] md:w-[500px] w-[420px] h-fit rounded-lg text-center md:gap-12 gap-6 hover:scale-102 transition transform">
+          <div className="flex flex-col bg-blue-50  lg:w-[650px] md:w-[500px] max-w-[420px] w-full h-fit rounded-lg text-center md:gap-12 gap-6 hover:scale-102 transition transform">
             <h1 className="lg:text-3xl md:text-2xl text-lg w-full bg-blue-1000 lg:p-4 md:p-3 p-2 flex justify-center items-center rounded-t-lg">
               Summary
             </h1>
