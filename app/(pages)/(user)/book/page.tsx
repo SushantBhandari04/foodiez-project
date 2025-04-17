@@ -93,10 +93,10 @@ export default function Contact() {
             </div>
             <div className='flex md:flex-row flex-col md:gap-4 gap-6 w-full'>
               <div className="flex flex-col gap-2 justify-center w-full">
-                <input type="date" name="date" required placeholder="Date" className="border-3 border-gray-400 bg-gray-900   text-gray-300/80 md:px-4 md:py-3 px-3 py-2 rounded-md" min={minDate} />
+                <input type="date" name="date" required placeholder="Date" className="border-3 border-gray-400 bg-gray-900   md:text-gray-300/80 text-gray-100 md:px-4 md:py-3 px-3 py-2 rounded-md" min={minDate} />
               </div>
               <div className="flex flex-col gap-2 justify-center w-full">
-                <input type="time" name="time" required placeholder="Time" className="border-3 border-gray-400 bg-gray-900   text-gray-300/80 md:px-4 md:py-3 px-3 py-2 rounded-md" min={minTime} />
+                <input type="time" name="time" required placeholder="Time" className="border-3 border-gray-400 bg-gray-900   md:text-gray-300/80 text-gray-100 md:px-4 md:py-3 px-3 py-2 rounded-md" min={minTime} />
               </div>
             </div>
 

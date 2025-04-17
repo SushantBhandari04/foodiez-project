@@ -5,7 +5,7 @@ import Logo from "./Logo";
 export default function Footer() {
     return <>
         <div className="flex lg:px-36 md:px-20 px-4 md:py-4 py-2 bg-[url(/footer-image.jpg)] text-white lg:h-96 md:h-84 h-72 w-full  bg-cover bg-center bg-no-repeat overflow-hidden">
-            <div className="flex flex-col lg:gap-12 md:gap-8 gap-4 w-full justify-left items-left m-0 p-0">
+            <div className="flex flex-col lg:gap-12 md:gap-10 gap-6 w-full justify-left items-left m-0 p-0">
                 <div className="w-full flex flex-col md:justify-center justify-start md:items-center gap-4">
                     <div className=" "><Logo /></div>
                     <div className="text-slate-300 flex md:flex-row flex-col md:gap-3 gap-1  lg:text-md md:text-sm text-xs">Designed and developed by :<h1 className="text-red-300">Dheerendra, Devang, Ranjan and Sushant</h1></div>
