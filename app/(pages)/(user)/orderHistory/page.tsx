@@ -45,7 +45,7 @@ export default function OrderHistory() {
   }, []);
 
   return (
-    <div className="flex flex-col justify-left  w-full px-32 gap-6 items-center mt-12 ">
+    <div className="flex flex-col justify-left  w-full lg:px-32 md:px-16 px-8 gap-6 items-center  lg:mt-12 md:mt-8 mt-6 ">
       <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r  from-cyan-500 to-white via-cyan-200 ">
         Order History
       </h1>
@@ -60,7 +60,7 @@ export default function OrderHistory() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="flex w-full lg:gap-12 md:gap-10 gap-8 flex-wrap justify-center items-center"
+          className="flex w-full lg:gap-12 md:gap-10 gap-8 flex-wrap justify-center items-start"
         >
           {orders.length > 0 ? (
             orders.map((order: Order, index) => (

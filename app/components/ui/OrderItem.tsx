@@ -26,7 +26,7 @@ export default function OrderItem({ order }: { order: Order }) {
     return (
         <div
             key={order.id}
-            className="flex flex-col lg:gap-4 md:gap-3 gap-2  md:p-6 py-4 px-5 w-[450px] bg-gradient-to-b from-blue-950 to-violet-950 via-purple-1000   shadow-md md:rounded-lg rounded-md h-fit"
+            className="flex flex-col lg:gap-4 md:gap-3 gap-2 lg:px-7  md:p-6 py-4 px-5 w-[450px] bg-gradient-to-br from-blue-950 to-violet-950/60    shadow-md md:rounded-lg rounded-md h-fit"
         >
             <div className="flex flex-col gap-2">
                 <div className="lg:text-xl md:text-md text-sm md:font-semibold font-medium text-red-400 flex md:gap-2 md:flex-row flex-col">
@@ -53,13 +53,13 @@ export default function OrderItem({ order }: { order: Order }) {
 
             <div className={`flex flex-col lg:gap-6 md:gap-5 gap-4 ${open ? "flex" : "hidden"}` }>
                 {order.items.map((item: OrderItem) => (
-                    <div key={item.id} className="flex gap-4 items-center">
+                    <div key={item.id} className="flex lg:gap-6 md:gap-5 gap-4 items-center">
                         <img
                             src={item.menuItem.imageUrl}
                             alt={item.menuItem.name}
-                            className="w-28 h-20 rounded-lg"
+                            className="lg:w-28 lg:h-19 md:w-24 md:h-16 w-16 h-12 rounded-lg"
                         />
-                        <div className="flex flex-col gap-1">
+                        <div className="flex flex-col justify-between lg:gap-1 md:gap-0.5">
                             <h4 className="lg:text-lg md:text-md text-sm md:font-semibold font-medium text-blue-200">
                                 {item.menuItem.name}
                             </h4>

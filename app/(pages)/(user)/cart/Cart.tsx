@@ -176,7 +176,7 @@ export default function Cart({ session }: { session: Session }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="flex flex-col lg:justify-left justify-center h-full w-full lg:px-32 md:px-16 px-8 gap-6 items-center lg:mt-12 md:mt-8 mt-4">
+      className="flex flex-col lg:justify-left justify-center h-full w-full lg:px-32 md:px-16 px-8 lg:gap-6 md:gap-5 gap-2 items-center lg:mt-12 md:mt-8 mt-4">
       <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r  from-cyan-500 to-white via-cyan-200 ">
         Cart
       </h1>
@@ -191,8 +191,8 @@ export default function Cart({ session }: { session: Session }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="flex lg:flex-row flex-col lg:justify-center md:gap-28 gap-24 w-full items-center lg:items-start  lg:gap-28 h-full ">
-          <div className="flex flex-col lg:gap-8 md:gap-6 gap-4 w-full justify-center items-center">
+          className="flex lg:flex-row flex-col lg:justify-center md:gap-24 gap-16 w-full items-center lg:items-start  lg:gap-28 h-full ">
+          <div className="flex flex-col lg:gap-8 md:gap-7 gap-6 w-full justify-center items-center">
             {items.length > 0 ? (
               items.map((item: OrderItem) => (
                 <CartItem
