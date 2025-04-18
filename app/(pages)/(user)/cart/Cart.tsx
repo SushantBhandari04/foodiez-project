@@ -229,7 +229,7 @@ export default function Cart({ session }: { session: Session }) {
               <div className="flex justify-between lg:text-xl md:text-lg text-md">
                 <h1>Total</h1>
                 <h1 className="flex gap-1">
-                  <p className="text-red-1000">Rs.</p> {totalPrice}
+                  <p className="text-red-1000 font-sans">&#8377;</p> {totalPrice}
                 </h1>
               </div>
             </div>

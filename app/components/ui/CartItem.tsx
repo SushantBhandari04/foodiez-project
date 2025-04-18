@@ -37,7 +37,7 @@ export const CartItem: FC<CartItemProps> = ({
         <div className="flex flex-col md:gap-2 gap-1">
           <h2 className="lg:text-xl text-md text-blue-300 font-medium"> {title}</h2>
           <h2 className="lg:text-[14px] md:text-[13px] text-xs">{type} </h2>
-          <p className="lg:text-[14px] md:text-[13px] text-xs">Rs. {price}</p>
+          <p className="lg:text-[14px] md:text-[13px] text-xs font-sans">&#8377; {price}</p>
         </div>
 
       </div>

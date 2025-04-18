@@ -139,7 +139,7 @@ export default function Dashboard2({
             <div className="">No items found</div>
           </div>
         ) : (
-          <motion.div className=" gap-9 lg:gap-y-28 md:gap-y-24 gap-y-16  w-full h-full py-10 flex flex-wrap justify-center items-center">
+          <motion.div className=" gap-9 lg:gap-y-28 md:gap-y-20 gap-y-10  w-full h-full py-10 flex flex-wrap justify-center items-center">
             {menuItems.map((item) => (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
