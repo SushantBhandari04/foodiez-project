@@ -59,7 +59,7 @@ export default function Contact() {
       });
     } else {
       toast.error("Error while booking table!", {
-        duration: 1500,
+        duration: 1200,
       });
     }
   }

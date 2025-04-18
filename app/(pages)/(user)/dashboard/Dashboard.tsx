@@ -154,7 +154,7 @@ export default function Dashboard2({
                   onClick={() => {
                     if (!user || !session) {
                       toast.error("Please login to add items to cart.", {
-                        duration: 1500,
+                        duration: 1200,
                       });
                     } else {
                       addItemToCart(item.id, user);

@@ -62,11 +62,11 @@ export default function Signin() {
       if (signinData?.error) {
         if (signinData.error.includes("CredentialsSignin")) {
           toast.error("User does not exist or password is incorrect.", {
-            duration: 1500,
+            duration: 1200,
           })
         } else {
           toast.error("Error while signing in. Please try again.", {
-            duration: 1500,
+            duration: 1200,
           })
         }
       } else {
@@ -225,7 +225,7 @@ export default function Signin() {
               </>
             ) : (
               <div className="flex gap-2 items-center justify-center">
-                <img src="/google.png" alt="Google Icon" className="lg:h-5 lg:w-5 md:h-4 md:w-4 h-3 w-3 lg:mr-2 md:mr-1 mr-0.5 font-semibold" />
+                <img src="/google.png" alt="Google Icon" className="lg:h-5 lg:w-5 md:h-4 md:w-4 h-3.5 w-3.5 lg:mr-2 md:mr-1 mr-0.5 font-semibold" />
                 Sign In with Google
               </div>
             )}

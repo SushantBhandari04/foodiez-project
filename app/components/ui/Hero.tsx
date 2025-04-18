@@ -57,7 +57,7 @@ export default function Hero() {
                         onClick={() => {
                             if (!user) {
                                 toast.error("Please login to book table.", {
-                                    duration:1500
+                                    duration:1200
 
                                 })
                             }

@@ -76,7 +76,7 @@ export default function Navbar() {
                 setOpen(false)
                 if (!user) {
                     toast.error("Please login to see cart.", {
-                        duration:1500
+                        duration:1200
                     })
                 }
                 else {
@@ -89,7 +89,7 @@ export default function Navbar() {
                     setOpen(false)
                     if (!user) {
                         toast.error("Please login to book table.", {
-                            duration:1500
+                            duration:1200
                         })
                     }
                     else {

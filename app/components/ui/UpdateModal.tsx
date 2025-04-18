@@ -36,7 +36,7 @@ export default function UpdateModal() {
 
         if (!id) {
             toast.error("Invalid item ID!", {
-                duration:1500
+                duration:1200
 
             });
             return;
@@ -78,7 +78,7 @@ export default function UpdateModal() {
             closeModal();
         } else {
             toast.error("Error while updating item!", {
-                duration:1500
+                duration:1200
 
             });
         }

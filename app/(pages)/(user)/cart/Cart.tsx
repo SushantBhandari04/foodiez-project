@@ -15,7 +15,7 @@ interface RazorpayOptions {
 declare global {
   interface Window {
     Razorpay: {
-      new (options: RazorpayOptions): RazorpayInstance;
+      new(options: RazorpayOptions): RazorpayInstance;
     };
   }
 }
@@ -114,11 +114,11 @@ export default function Cart({ session }: { session: Session }) {
       const order = await response.data;
       console.log("Order final: ", order.order);
 
-     
 
-     
 
-   
+
+
+
       const options: RazorpayOptions = {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
         amount: order.amount,
@@ -130,12 +130,12 @@ export default function Cart({ session }: { session: Session }) {
           // Save the order to the database
           setLoading(true);
           await axios.post("/api/orders/saveOrder", {
-        orderId: response.razorpay_order_id,
-        totalAmount: totalPrice,
+            orderId: response.razorpay_order_id,
+            totalAmount: totalPrice,
           });
 
           toast.success("Order placed successfully.", {
-            duration: 1000,
+            duration: 800,
           });
           // Clear the cart
           setItems([]);
@@ -164,7 +164,7 @@ export default function Cart({ session }: { session: Session }) {
     } catch (error) {
       console.error("Error during checkout:", error);
       toast.error("Failed to initiate payment. Please try again.", {
-        duration: 1500,
+        duration: 1200,
       });
     }
   }
@@ -229,7 +229,7 @@ export default function Cart({ session }: { session: Session }) {
               <div className="flex justify-between lg:text-xl md:text-lg text-md">
                 <h1>Total</h1>
                 <h1 className="flex gap-1">
-                  <p className="text-red-1000 font-sans">&#8377;</p> {totalPrice}
+                  <p className="text-red-1000 font-sans ">&#8377;</p> {totalPrice}
                 </h1>
               </div>
             </div>

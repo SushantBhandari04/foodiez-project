@@ -82,18 +82,18 @@ export default function Signup() {
                 if (data.message == "User signed up successfully.") {
                     router.push("/signin");
                     toast.success("Signup successful", {
-                        duration: 1000,
+                        duration: 700,
                     })
                 } else {
                     toast.error(data.message, {
-                        duration: 1500,
+                        duration: 1200,
                     });
                 }
                 setLoading(false);
             });
         } catch {
             toast.error("Signup failed. Please try again.", {
-                duration: 1500,
+                duration: 1200,
             });
             setLoading(false);
         }

@@ -41,7 +41,7 @@ export function addItemToCart(itemId: string, user: User) {
         //     transition: Bounce
         // })
         toast.success('Item added to cart.', {
-            duration: 1000,
+            duration: 700,
             position: 'top-center',
         }
         )

@@ -63,13 +63,13 @@ export default function AddMenuItem() {
         });
       } else {
         toast.error("Error while adding menu item!", {
-          duration:1500
+          duration:1200
         });
       }
     } catch (error: unknown) {
       console.error("Error submitting form:", error);
       toast.error("Error while sending request!", {
-        duration:1500
+        duration:1200
       });
     }
   }

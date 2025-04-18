@@ -35,7 +35,7 @@ export default function Contact() {
             console.log(result);
         } else {
             toast.error("Error while sending message!", {
-                duration: 1500,
+                duration: 1200,
             });
         }
         setLoading(false);
