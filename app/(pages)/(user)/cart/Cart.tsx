@@ -176,7 +176,7 @@ export default function Cart({ session }: { session: Session }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="flex flex-col lg:justify-left justify-center h-full w-full lg:px-32 md:px-16 px-8 lg:gap-6 md:gap-5 gap-2 items-center lg:mt-12 md:mt-8 mt-4">
+      className="flex flex-col lg:justify-left justify-center h-full w-full lg:px-32 md:px-16 px-6 lg:gap-6 md:gap-5 gap-2 items-center lg:mt-12 md:mt-8 mt-4">
       <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r  from-cyan-500 to-white via-cyan-200 ">
         Cart
       </h1>

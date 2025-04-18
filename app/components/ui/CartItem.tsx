@@ -30,7 +30,7 @@ export const CartItem: FC<CartItemProps> = ({
   onDeleteItem
 }) => {
 
-  return <div className="flex lg:max-w-[700px] md:max-w-[700px] max-w-[500px] justify-center items-center gap-4 w-full bg-blue-100 md:px-4 px-3 lg:py-3 md:py-3 py-2 md:rounded-lg rounded-md lg:h-32 md:h-28 h-24">
+  return <div className="flex lg:max-w-[700px] md:max-w-[700px] max-w-[500px] justify-center items-center gap-4 w-full bg-blue-100 md:px-4 px-4 lg:py-3 md:py-3 py-2 md:rounded-lg rounded-md lg:h-32 md:h-28 h-24">
    <div> <img src={imageUrl} alt="" className="flex lg:w-36 lg:h-20 md:w-32 md:h-16 w-20 h-13 rounded-lg" /></div>
     <div className="flex justify-between w-full h-full">
       <div className="flex  justify-between items-center ">
