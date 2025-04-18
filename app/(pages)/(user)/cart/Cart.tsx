@@ -53,6 +53,7 @@ export default function Cart({ session }: { session: Session }) {
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [totalQuantity, setTotalQuantity] = useState<number>(0);
   const [error, setError] = useState<boolean>(false);
+  const [checkoutLoading, setCheckoutLoading] = useState<boolean>(false);
 
   useEffect(() => {
     async function fetchItems() {
@@ -105,7 +106,22 @@ export default function Cart({ session }: { session: Session }) {
     );
   }
 
+
+  function handle(){
+    toast.promise(handleCheckout, {
+      loading: <b>Checking out...</b>,
+      // success: <b></b>,
+      error: <b>Could not checkout. Please try again.</b>,
+      
+    },{
+      success: {
+        duration: 700
+      }
+    });
+  }
+
   async function handleCheckout() {
+    setCheckoutLoading(true);
     try {
       const response = await axios.post("/api/payment/createOrder", {
         amount: totalPrice,
@@ -161,11 +177,15 @@ export default function Cart({ session }: { session: Session }) {
         console.error("Failed to load Razorpay script");
       };
       document.body.appendChild(script);
+
+      return response
     } catch (error) {
       console.error("Error during checkout:", error);
       toast.error("Failed to initiate payment. Please try again.", {
         duration: 1200,
       });
+    } finally{
+      setLoading(false);
     }
   }
 
@@ -236,9 +256,35 @@ export default function Cart({ session }: { session: Session }) {
 
             <button
               className="bg-green-500 md:px-4 md:py-3 px-3 py-2 rounded-b-lg  text-white font-medium md:text-lg text-md w-full mt-4 hover:bg-green-600 cursor-pointer"
-              onClick={handleCheckout}
+              onClick={ handle }
             >
-              Checkout
+              {loading ? (
+                            <>
+                              <svg
+                                className="animate-spin h-5 w-5 mr-2 text-white"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <circle
+                                  className="opacity-25"
+                                  cx="12"
+                                  cy="12"
+                                  r="10"
+                                  stroke="currentColor"
+                                  strokeWidth="4"
+                                ></circle>
+                                <path
+                                  className="opacity-75"
+                                  fill="currentColor"
+                                  d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8H4z"
+                                ></path>
+                              </svg>
+                              Checking out...
+                            </>
+                          ) : (
+                           "Checkout"
+                          )}
             </button>
           </div>
         </motion.div>

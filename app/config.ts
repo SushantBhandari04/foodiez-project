@@ -28,7 +28,7 @@ export type OrderItem = {
 
 
 export function addItemToCart(itemId: string, user: User) {
-    axios.post("/api/order", {
+    return axios.post("/api/order", {
         userId: user?.id,
         itemId: itemId
     }).then((response) => {
@@ -40,11 +40,7 @@ export function addItemToCart(itemId: string, user: User) {
         //     position:"top-center",
         //     transition: Bounce
         // })
-        toast.success('Item added to cart.', {
-            duration: 700,
-            position: 'top-center',
-        }
-        )
+       
     }).catch(() => {
         toast.error("Error while adding item to cart.", {
             duration: 1000,

@@ -33,7 +33,8 @@ export default function AdminMenuCard({ menuItem }: { menuItem: MenuItem}) {
             const newMenuItems = menuItems.filter(item=>item.id!=id);
             setItems(newMenuItems);
             toast.success("Item removed successfully.",{
-              duration:700
+              duration:700,
+              
 
             })
         }

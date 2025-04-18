@@ -127,7 +127,7 @@ export default function Signup() {
                 initial="hidden"
                 animate={mainControls}
                 transition={{ duration: 0.5, delay: 0.1 }} 
-      className="lg:w-1/2 lg:max-w-1/2  w-full md:max-w-160 max-w-120 flex flex-col lg:gap-14 md:gap-10 gap-8  justify-center  text-white lg:py-8 md:py-14 md:mx-10 mx-2 lg:mx-0 py-10 px-6 lg:px-36 md:px-20  lg:shadow-2xl items-center bg-slate-600/30 lg:bg-transparent  rounded-xl ">
+      className="lg:w-1/2 lg:max-w-1/2  w-full md:max-w-160 max-w-120 flex flex-col lg:gap-14 md:gap-10 gap-8  justify-center  text-white lg:py-8 md:py-14 md:mx-10 mx-2 lg:mx-0 py-10 px-6 lg:px-36 md:px-20  lg:shadowr-2xl items-center bg-slate-600/30 lg:bg-transparent  rounded-xl ">
 
                 <div className="flex flex-col lg:gap-2 md:gap-1 gap-0.5 mb-4">
                     <div className="flex gap-2 justify-center items-center lg:text-4xl md:text-3xl text-2xl font-semibold text-center">

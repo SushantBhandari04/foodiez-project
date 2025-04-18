@@ -75,9 +75,9 @@ export default function Dashboard2({
     searchItem = searchItem.trim();
     let foundItems;
     if (searchItem == "") {
-      if(currentType==null){
+      if (currentType == null) {
         foundItems = menuItemsData
-      }else{
+      } else {
         foundItems = menuItemsData.filter(item => {
           return item.typeName === currentType;
         })
@@ -105,11 +105,11 @@ export default function Dashboard2({
       {/* TypesCard Section */}
       {/* <TypecardMarquee scrollContainerRef={scrollContainerRef} setCurrentType={setCurrentType} typesData={typesData} /> */}
 
-<TypecardMarquee
-    scrollContainerRef={marqueeRef}
-    typesData={typesData}
-    setCurrentType={setCurrentType}
-/>
+      <TypecardMarquee
+        scrollContainerRef={marqueeRef}
+        typesData={typesData}
+        setCurrentType={setCurrentType}
+      />
 
       <motion.div
         id="menu-section"
@@ -157,7 +157,16 @@ export default function Dashboard2({
                         duration: 1200,
                       });
                     } else {
-                      addItemToCart(item.id, user);
+                      toast.promise(addItemToCart(item.id, user), {
+                        loading: "Adding",
+                        success: <b>Added to cart</b>,
+                        error: <b>Could not add.</b>,
+                        
+                      },{
+                        success: {
+                          duration: 700
+                        }
+                      });
                     }
                   }}
                 />

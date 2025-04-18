@@ -103,7 +103,7 @@ export default function Signin() {
       initial="hidden"
       animate={mainControls}
       transition={{ duration: 0.6, delay: 0.2 }}
-      className="lg:w-1/2 lg:max-w-1/2  w-full md:max-w-160 max-w-120 flex flex-col lg:gap-14 md:gap-10 gap-8  justify-center  text-white lg:py-8 md:py-14 md:mx-10 mx-2 lg:mx-0 py-10 px-6 lg:px-36 md:px-20  lg:shadow-2xl items-center bg-slate-600/30 lg:bg-transparent  rounded-xl ">
+      className="lg:w-1/2 lg:max-w-1/2  w-full md:max-w-160 max-w-120 flex flex-col lg:gap-14 md:gap-10 gap-8  justify-center  text-white lg:py-8 md:py-14 md:mx-10 mx-2 lg:mx-0 py-10 px-6 lg:px-36 md:px-20  lg:shadowr-2xl items-center bg-slate-600/30 lg:bg-transparent  rounded-xl ">
       <div className="flex flex-col lg:gap-2 md:gap-1 gap-0.5 mb-4">
         <div className="flex gap-2 justify-center items-center lg:text-4xl md:text-3xl text-2xl font-semibold text-center ">Welcome Back on <h1 className="font-montez text-yellow-900 font-medium lg:text-5xl md:text-5xl text-4xl">Foodiez</h1></div>
         <p className="text-center text-gray-300 ;g:text-md md:text-sm text-xs ">Sign in to book table and order food.</p>
