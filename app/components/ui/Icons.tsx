@@ -76,3 +76,6 @@ export function CrossIcon({classname}:{classname?: string}) {
 export function TableIcon({classname}:{classname?: string}) {
     return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" className="enable-background:new 0 0 64 64 h-6 fill-gray-300 hover:white lg:hidden" ><path d="M64 18.29v-4H0v4h15.17l14 14-14.58 14.59 2.83 2.83L32 35.12l14.59 14.59 2.83-2.83-14.59-14.59 14-14H64zM32 29.46 20.83 18.29h22.34L32 29.46z" className="fill:#231f20"/></svg>
 }
+export function SignIcon({classname}:{classname?: string}) {
+    return <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`lucide lucide-arrow-right-to-line-icon lucide-arrow-right-to-line ${classname}`}><path d="M17 12H3"/><path d="m11 18 6-6-6-6"/><path d="M21 5v14"/></svg>
+}

@@ -5,6 +5,7 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
+import { SignIcon } from "../ui/Icons";
 
 
 
@@ -71,10 +72,10 @@ export default function Signin() {
           })
         }
       } else {
-        if(email==="admin@gmail.com"){
+        if (email === "admin@gmail.com") {
           router.push("/admin/home");
         }
-        else{
+        else {
           router.push("/dashboard");
         }
         router.refresh();
@@ -94,7 +95,7 @@ export default function Signin() {
     }).then(() => setGoogleLoading(false))
   }
 
-  return <div ref={ref} className="font-dmsans overflow-hidden flex min-h-screen w-screen items-center justify-between bg-gray-800">
+  return <div ref={ref} className="font-dmsans flex w-full h-screen items-center lg:justify-between justify-center lg:bg-gray-800 bg-gray-1000">
 
     <motion.div
       variants={{
@@ -104,34 +105,34 @@ export default function Signin() {
       initial="hidden"
       animate={mainControls}
       transition={{ duration: 0.6, delay: 0.2 }}
-      className="w-1/2 flex flex-col gap-14 h-screen justify-center  text-white p-8 px-36  shadow-2xl">
-      <div className="flex flex-col gap-2">
-        <div className="flex gap-2 justify-center items-center text-4xl font-semibold text-center ">Welcome Back on <h1 className="font-montez text-yellow-900 font-medium text-5xl">Foodiez</h1></div>
-        <p className="text-center text-gray-300 text-md ">Sign in to manage your restaurant.</p>
+      className="lg:w-1/2 lg:max-w-1/2  w-full md:max-w-160 max-w-120 flex flex-col lg:gap-14 md:gap-10 gap-8  justify-center  text-white lg:py-8 md:py-14 md:mx-10 mx-2 lg:mx-0 py-10 px-6 lg:px-36 md:px-20  lg:shadow-2xl items-center bg-slate-600/30 lg:bg-transparent  rounded-xl ">
+      <div className="flex flex-col lg:gap-2 md:gap-1 gap-0.5 mb-4">
+        <div className="flex gap-2 justify-center items-center lg:text-4xl md:text-3xl text-2xl font-semibold text-center ">Welcome Back on <h1 className="font-montez text-yellow-900 font-medium lg:text-5xl md:text-5xl text-4xl">Foodiez</h1></div>
+        <p className="text-center text-gray-300 ;g:text-md md:text-sm text-xs ">Sign in to book table and order food.</p>
       </div>
 
-      <div className="space-y-5  gap-2 flex flex-col">
+      <div className="space-y-5 lg:max-w-full md:max-w-140 max-w-100 md:gap-2 gap-1 flex flex-col w-full px-2 md:px-0">
         <div className="flex flex-col gap-2 ">
-          <h2 className="text-lg">Email</h2>
+          <h2 className="lg:text-lg md:text-md text-sm">Email</h2>
           <input
             onChange={(e) => setEmail(e.target.value)}
             onBlur={validateForm}
             type="text"
             placeholder="john@gmail.com"
-            className="bg-gray-100 w-full p-3 h-11 text-black border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="bg-gray-100 w-full p-3 lg:h-11 md:h-10.5 h-10 lg:text-md md:text-sm text-[13px] text-black border border-gray-300 lg:rounded-xl md:rounded-lg rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             disabled={loading}
           />
-          {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+          {errors.email && <p className="text-red-500 md:text-sm text-xs">{errors.email}</p>}
         </div>
 
         <div className="flex flex-col gap-2 ">
-          <h2 className="text-lg">Password</h2>
+          <h2 className="lg:text-lg md:text-md text-sm">Password</h2>
           <input
             onChange={(e) => setPassword(e.target.value)}
             onBlur={validateForm}
             type="password"
             placeholder="john123"
-            className="bg-gray-100 w-full p-3 h-11 text-black border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="bg-gray-100 w-full p-3 lg:h-11 md:h-10.5 h-10 lg:text-md md:text-sm text-[13px] text-black border border-gray-300 lg:rounded-xl md:rounded-lg rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             disabled={loading}
           />
           {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
@@ -141,11 +142,11 @@ export default function Signin() {
 
       </div>
 
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 px-2 md:px-0 w-full md:max-w-140 max-w-100 lg:text-md md:text-sm text-xs">
         <div className="flex flex-col gap-2">
           <button
             onClick={signin}
-            className={`cursor-pointer w-full flex justify-center items-center bg-yellow-900 text-black py-3 rounded-xl font-semibold transition-all ${loading ? "bg-blue-400 cursor-not-allowed" : "hover:bg-yellow-500 shadow-lg transform hover:scale-[1.02]"
+            className={`cursor-pointer w-full flex justify-center items-center bg-yellow-900 text-black py-3 lg:rounded-xl md:rounded-lg rounded-md font-semibold transition-all ${loading ? "bg-blue-400 cursor-not-allowed" : "hover:bg-yellow-500 shadow-lg transform hover:scale-[1.02]"
               }`}
             disabled={loading}
           >
@@ -174,25 +175,29 @@ export default function Signin() {
                 Signing In...
               </>
             ) : (
-              "Sign In"
+              <div className="flex justify-center items-center lg:gap-1.5 gap-1">
+
+                <h1>Sign In</h1>
+                <SignIcon classname="md:h-4.5 lg:h-5 h-3.5" />
+              </div>
             )}
           </button>
           <p className="text-center ">
             Don&apos;t have an account?{" "}
-            <a href="/signup" className="text-blue-300 font-semibold hover:underline">
+            <a href="/signup" className="text-blue-300 lg:font-semibold font-medium hover:underline">
               Sign up
             </a>
           </p>
         </div>
 
-        <h1 className="text-center text-lg font-semibold text-gray-200 text-md ">
+        <h1 className="text-center  lg:font-semibold font-medium text-gray-200 text-md ">
           Or
         </h1>
 
-        <div>
+        <div className="font-semibold">
           <button
             onClick={signinWithGoogle}
-            className={`cursor-pointer w-full flex justify-center items-center bg-blue-600 text-white py-3 rounded-xl font-semibold transition-all ${googleLoading ? "bg-blue-400 cursor-not-allowed" : "hover:bg-blue-700 shadow-lg transform hover:scale-[1.02]"
+            className={`cursor-pointer w-full flex justify-center items-center bg-blue-600 text-white py-3 lg:rounded-xl md:rounded-lg rounded-md  transition-all ${googleLoading ? "bg-blue-400 cursor-not-allowed" : "hover:bg-blue-700 shadow-lg transform hover:scale-[1.02]"
               }`}
             disabled={googleLoading}
           >
@@ -222,7 +227,7 @@ export default function Signin() {
               </>
             ) : (
               <div className="flex gap-2 items-center justify-center">
-                <img src="/google.png" alt="Google Icon" className="h-5 w-5 mr-2" />
+                <img src="/google.png" alt="Google Icon" className="lg:h-5 lg:w-5 md:h-4 md:w-4 h-3 w-3 lg:mr-2 md:mr-1 mr-0.5 font-semibold" />
                 Sign In with Google
               </div>
             )}
@@ -240,8 +245,8 @@ export default function Signin() {
       initial="hidden"
       animate={mainControls}
       transition={{ duration: 0.75, delay: 0.25 }}
-      className="h-screen w-1/2">
-      <img src="/new-signin-4.jpg" alt="Signup Image" className="h-full w-full" />
+      className="h-screen lg:w-1/2 lg:flex hidden">
+      <img src="/new-signin-4.jpg" alt="Signup Image" className="h-full w-full lg:flex hidden" />
     </motion.div>
   </div>
 
