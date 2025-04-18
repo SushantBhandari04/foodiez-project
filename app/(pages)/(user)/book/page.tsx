@@ -1,6 +1,6 @@
 "use client";
 
-import { toast } from 'react-toastify';
+import toast from "react-hot-toast";
 import Swal from 'sweetalert2';
 import { motion } from 'framer-motion';
 import axios from 'axios';
@@ -59,8 +59,7 @@ export default function Contact() {
       });
     } else {
       toast.error("Error while booking table!", {
-        autoClose: 2000,
-        theme: "colored",
+        duration: 1500,
       });
     }
   }

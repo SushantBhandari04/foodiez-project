@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { toast } from "react-toastify";
+import  toast  from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { CalendarIcon, ChefHatIcon, HygieneIcon, RightArrowIcon, UtensilsIcon } from "./Icons";
@@ -57,8 +57,8 @@ export default function Hero() {
                         onClick={() => {
                             if (!user) {
                                 toast.error("Please login to book table.", {
-                                    autoClose: 1500,
-                                    theme: "colored"
+                                    duration:1500
+
                                 })
                             }
                             else {

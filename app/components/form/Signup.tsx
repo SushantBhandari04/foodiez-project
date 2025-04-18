@@ -5,7 +5,7 @@ import { useAnimation, useInView, motion } from "motion/react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import { SignIcon } from "../ui/Icons";
 
 export default function Signup() {
@@ -82,21 +82,18 @@ export default function Signup() {
                 if (data.message == "User signed up successfully.") {
                     router.push("/signin");
                     toast.success("Signup successful", {
-                        autoClose: 3000,
-                        theme: "colored"
+                        duration: 1000,
                     })
                 } else {
                     toast.error(data.message, {
-                        autoClose: 3000,
-                        theme: "colored"
+                        duration: 1500,
                     });
                 }
                 setLoading(false);
             });
         } catch {
             toast.error("Signup failed. Please try again.", {
-                autoClose: 3000,
-                theme: "colored"
+                duration: 1500,
             });
             setLoading(false);
         }

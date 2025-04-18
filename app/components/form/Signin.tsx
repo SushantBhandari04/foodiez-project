@@ -4,7 +4,7 @@ import { useAnimation, useInView, motion } from "motion/react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import { SignIcon } from "../ui/Icons";
 
 
@@ -62,13 +62,11 @@ export default function Signin() {
       if (signinData?.error) {
         if (signinData.error.includes("CredentialsSignin")) {
           toast.error("User does not exist or password is incorrect.", {
-            autoClose: 3000,
-            theme: "colored"
+            duration: 1500,
           })
         } else {
           toast.error("Error while signing in. Please try again.", {
-            autoClose: 3000,
-            theme: "colored"
+            duration: 1500,
           })
         }
       } else {

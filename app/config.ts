@@ -1,6 +1,6 @@
 import { User } from "next-auth"
-import { toast } from "react-toastify"
 import axios from "axios"
+import toast from "react-hot-toast"
 
 export type Type = {
     id: string,
@@ -32,16 +32,23 @@ export function addItemToCart(itemId: string, user: User) {
         userId: user?.id,
         itemId: itemId
     }).then((response) => {
-        toast.success("Item added to cart.", {
-            autoClose: 1000,
-            theme: "colored",
-            hideProgressBar: true,
-        })
-        console.log(response.data)
+        // toast.success("Item added to cart.", {
+        //     autoClose: 1000,
+        //     theme: "colored",
+        //     hideProgressBar: true,
+        //     className:"w-5000px",
+        //     position:"top-center",
+        //     transition: Bounce
+        // })
+        toast.success('Item added to cart.', {
+            duration: 1000,
+            position: 'top-center',
+        }
+        )
     }).catch(() => {
         toast.error("Error while adding item to cart.", {
-            autoClose: 2000,
-            theme: "colored"
+            duration: 1000,
+            position: "top-center"
         })
         console.log("error while adding item to cart.")
     })
@@ -51,9 +58,9 @@ export function deleteCompleteItem(itemId: string) {
     axios.delete(`/api/order/delete?itemId=${itemId}`, {
     }).then(() => {
     }).catch(() => {
-        toast.error("Error while remooving from cart.", {
-            autoClose: 2000,
-            theme: "colored"
+        toast.error("Error while removing from cart.", {
+            duration: 1000,
+            position: "top-center"
         })
         console.log("error while removing item from cart.")
     })
@@ -64,8 +71,8 @@ export function deleteItemFromCart(itemId: string) {
     }).then(() => {
     }).catch(() => {
         toast.error("Error while remooving from cart.", {
-            autoClose: 2000,
-            theme: "colored"
+            duration: 1000,
+            position: "top-center"
         })
         console.log("error while removing item from cart.")
     })

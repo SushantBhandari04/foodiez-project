@@ -44,7 +44,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { addItemToCart, deleteItemFromCart, OrderItem } from "@/app/config";
 import { CartItem } from "@/app/components/ui/CartItem";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import { motion } from "framer-motion"
 
 export default function Cart({ session }: { session: Session }) {
@@ -135,8 +135,7 @@ export default function Cart({ session }: { session: Session }) {
           });
 
           toast.success("Order placed successfully.", {
-        autoClose: 2000,
-        theme: "colored",
+            duration: 1000,
           });
           // Clear the cart
           setItems([]);
@@ -165,8 +164,7 @@ export default function Cart({ session }: { session: Session }) {
     } catch (error) {
       console.error("Error during checkout:", error);
       toast.error("Failed to initiate payment. Please try again.", {
-        autoClose: 2000,
-        theme: "colored"
+        duration: 1500,
       });
     }
   }

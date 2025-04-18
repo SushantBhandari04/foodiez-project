@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { useMenuItemsStore, useUpdateItemStore, useUpdateModalStore } from "@/store";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { toast } from "react-toastify";
+import  toast  from "react-hot-toast";
 
 export default function UpdateModal() {
     const closeModal = useUpdateModalStore((state) => state.closeModal)
@@ -36,8 +36,8 @@ export default function UpdateModal() {
 
         if (!id) {
             toast.error("Invalid item ID!", {
-                autoClose: 2000,
-                theme: "colored",
+                duration:1500
+
             });
             return;
         }
@@ -78,8 +78,8 @@ export default function UpdateModal() {
             closeModal();
         } else {
             toast.error("Error while updating item!", {
-                autoClose: 2000,
-                theme: "colored",
+                duration:1500
+
             });
         }
     }

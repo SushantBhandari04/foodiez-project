@@ -7,11 +7,11 @@ import { addItemToCart, MenuItem, Type } from "@/app/config";
 import MenuCard from "@/app/components/ui/MenuCard";
 import { Session } from "next-auth";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { toast } from "react-toastify";
 import { useMenuItemsStore } from "@/store";
 import Testimonials from "@/app/components/ui/testimonials";
 import TypecardMarquee from "@/app/components/ui/TypecardMarquee";
 import { SearchIcon } from "@/app/components/ui/Icons";
+import toast from "react-hot-toast";
 
 type Dashboard2Props = {
   session?: Session;
@@ -154,8 +154,7 @@ export default function Dashboard2({
                   onClick={() => {
                     if (!user || !session) {
                       toast.error("Please login to add items to cart.", {
-                        autoClose: 2000,
-                        theme: "colored",
+                        duration: 1500,
                       });
                     } else {
                       addItemToCart(item.id, user);

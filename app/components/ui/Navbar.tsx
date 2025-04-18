@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import LoginButton from "./LoginButton";
 import { useRouter } from "next/navigation";
-import { toast } from "react-toastify";
+import  toast  from "react-hot-toast";
 import { AboutIcon, CartIcon, ContactIcon, CrossIcon, HamburgerIcon, HomeIcon, MenuIcon, TableIcon } from "./Icons";
 import { useEffect, useState } from "react";
 
@@ -76,8 +76,7 @@ export default function Navbar() {
                 setOpen(false)
                 if (!user) {
                     toast.error("Please login to see cart.", {
-                        autoClose: 1500,
-                        theme: "colored"
+                        duration:1500
                     })
                 }
                 else {
@@ -90,8 +89,7 @@ export default function Navbar() {
                     setOpen(false)
                     if (!user) {
                         toast.error("Please login to book table.", {
-                            autoClose: 1500,
-                            theme: "colored"
+                            duration:1500
                         })
                     }
                     else {

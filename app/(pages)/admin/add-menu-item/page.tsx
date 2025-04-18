@@ -3,7 +3,7 @@
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { useState } from "react";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 
 export default function AddMenuItem() {
@@ -63,15 +63,13 @@ export default function AddMenuItem() {
         });
       } else {
         toast.error("Error while adding menu item!", {
-          autoClose: 2000,
-          theme: "colored",
+          duration:1500
         });
       }
     } catch (error: unknown) {
       console.error("Error submitting form:", error);
       toast.error("Error while sending request!", {
-        autoClose: 2000,
-        theme: "colored",
+        duration:1500
       });
     }
   }

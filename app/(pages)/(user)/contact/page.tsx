@@ -1,6 +1,6 @@
 "use client";
 
-import { toast } from 'react-toastify';
+import toast from "react-hot-toast";
 import Swal from 'sweetalert2';
 import { motion } from 'framer-motion';
 import React, { useState } from 'react'; // Ensure React is imported for type definitions
@@ -35,8 +35,7 @@ export default function Contact() {
             console.log(result);
         } else {
             toast.error("Error while sending message!", {
-                autoClose: 2000,
-                theme: "colored"
+                duration: 1500,
             });
         }
         setLoading(false);
