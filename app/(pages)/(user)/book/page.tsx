@@ -67,7 +67,7 @@ export default function Contact() {
 
   return (
     <div className='flex flex-col lg:gap-8 gap-4 w-full lg:p-8 md:p-6 p-4 overflow-x-hidden justify-center items-center'>
-      <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r text-center w-full  from-cyan-400 to-gray-400 ">
+      <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r text-center w-full  from-cyan-500 to-white via-cyan-200 ">
         Book A Table
       </h1>
 

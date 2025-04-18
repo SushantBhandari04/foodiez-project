@@ -48,7 +48,7 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="w-full h-full flex flex-col lg:gap-16 md:gap-10 gap-8 justify-center items-center lg:p-8 p-6">
-            <h1 className="lg:text-4xl md:text-2xl text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-gray-400">
+            <h1 className="lg:text-4xl md:text-2xl text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-white via-cyan-200">
                 Contact Us
             </h1>
             <form onSubmit={handleSubmit} className="w-full bg-gradient-to-b from-blue-950 to-violet-950 flex flex-col gap-8 justify-center items-center lg:max-w-130 md:max-w-115 max-w-100 lg:p-12 md:p-10 p-8 rounded-xl">
