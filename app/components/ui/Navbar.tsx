@@ -72,7 +72,7 @@ export default function Navbar() {
             <Link href="/about"><NavbarTags title="About" icon={<AboutIcon />} onClick={() => setOpen(false)} /></Link>
             <Link href="/dashboard#menu-section"><NavbarTags title="Menu" icon={<MenuIcon />} onClick={() => setOpen(false)} /></Link>
             <Link href="/contact"><NavbarTags title="Contact" icon={<ContactIcon />} onClick={() => setOpen(false)} /></Link>
-            <div onClick={() => {
+            <div className="md:flex hidden" onClick={() => {
                 setOpen(false)
                 if (!user) {
                     toast.error("Please login to see cart.", {
@@ -103,15 +103,18 @@ export default function Navbar() {
             {!user && <div className="hidden lg:flex"><Link href="/signin"><LoginButton /></Link></div>}
         </div>
 
-        <div className="flex lg:hidden justify-center items-center">
-            {user && <div className="lg:hidden block"><ProfileButton classname="mr-2" isAdmin={isAdmin} letter={user.name ? user.name[0].toUpperCase() : user.username[0].toUpperCase()} /></div>}
+        <div className="flex md:gap-3 gap-2 lg:hidden justify-center items-center">
+
+            {user && <div className="lg:hidden block mr-2 text-gray-300 hover:text-green-500 cursor-pointer"><CartIcon/></div>}
+            
+            {user && <div className="lg:hidden block"><ProfileButton isAdmin={isAdmin} letter={user.name ? user.name[0].toUpperCase() : user.username[0].toUpperCase()} /></div>}
 
             {!user && <div className="lg:hidden flex"><Link href="/signin"><LoginButton classname="hover:underline" /></Link></div>}
             <button
                 className="cursor-pointer p-2 hover:bg-gray-600/60 text-gray-400 rounded-md hover:text-white"
                 onClick={() => setOpen(!open)}
             >
-                {!open ? <HamburgerIcon classname="" /> : <CrossIcon />}
+                {!open ? <HamburgerIcon/> : <CrossIcon />}
             </button>
         </div>
     </div>
