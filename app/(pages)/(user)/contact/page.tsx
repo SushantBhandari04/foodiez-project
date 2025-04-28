@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import Swal from 'sweetalert2';
 import { motion } from 'framer-motion';
 import React, { useState } from 'react'; // Ensure React is imported for type definitions
+import { SendIcon } from "@/app/components/ui/Icons";
 
 export default function Contact() {
     const [loading, setLoading]  = useState<boolean>(false);
@@ -53,17 +54,17 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="w-full bg-gradient-to-b from-blue-950 to-violet-950 flex flex-col gap-8 justify-center items-center lg:max-w-130 md:max-w-115 max-w-100 lg:p-12 md:p-10 p-8 rounded-xl">
                 <div className="flex flex-col gap-2 justify-center w-full lg:text-lg md:text-md text-sm">
                     <label htmlFor="name" className=" ">Name</label>
-                    <input type="text" name="name" required placeholder="Your name" className="bg-gray-100/80 focus:bg-white text-black p-2 rounded-md lg:text-md md:text-sm text-xs" />
+                    <input type="text" name="name" required placeholder="Your name" className="bg-gray-100/80 focus:bg-white text-black p-2 md:p-2.5 rounded-md lg:text-md md:text-sm text-xs" />
                 </div>
                 <div className="flex flex-col gap-2 justify-center w-full lg:text-lg md:text-md text-sm">
                     <label htmlFor="email" className="">Email</label>
-                    <input type="email" name="email" required placeholder="email@example.com" className="bg-gray-100/80 focus:bg-white text-black p-2 rounded-md lg:text-md md:text-sm text-xs" />
+                    <input type="email" name="email" required placeholder="email@example.com" className="bg-gray-100/80 focus:bg-white text-black p-2 md:p-2.5 rounded-md lg:text-md md:text-sm text-xs" />
                 </div>
                 <div className="flex flex-col w-full gap-2 justify-center lg:text-lg md:text-md text-sm">
                     <label htmlFor="message" className="">Message</label>
                     <textarea name="message" rows={5} placeholder="Enter Message" className="bg-gray-100/80 focus:bg-white text-black p-2 rounded-md lg:text-md md:text-sm text-xs"></textarea>
                 </div>
-                <button type="submit" className="lg:text-md text-sm w-full p-2 bg-blue-600 rounded-lg hover:bg-blue-700 transition transform flex justify-center items-center hover:scale-105 cursor-pointer">
+                <button type="submit" className="lg:text-md text-sm w-full p-2 md:p-3 bg-blue-600 rounded-lg hover:bg-blue-700 transition transform flex justify-center items-center hover:scale-103 cursor-pointer">
                 {loading ? (
               <>
                 <svg
@@ -89,7 +90,11 @@ export default function Contact() {
                 Sending...
               </>
             ) : (
-              "Send Message"
+                <div className="flex gap-2 justify-center items-center lg:text-md text-sm">
+
+                    Send Message
+                    <SendIcon/>
+                </div>
             )}
                 </button>
             </form>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import OrderItem from "@/app/components/ui/OrderItem";
+import Loader2 from "@/app/components/ui/Loader2";
 
 interface OrderItem {
   id: string;
@@ -52,9 +53,7 @@ export default function OrderHistory() {
       <br />
 
       {loading ? (
-        <div className="flex items-center justify-center min-h-[200px]">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-gray-900"></div>
-        </div>
+        <Loader2/>
       ) : (
         <motion.div
           initial={{ opacity: 0 }}

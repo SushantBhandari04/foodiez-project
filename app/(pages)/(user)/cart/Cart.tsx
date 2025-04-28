@@ -46,6 +46,7 @@ import { addItemToCart, deleteItemFromCart, OrderItem } from "@/app/config";
 import { CartItem } from "@/app/components/ui/CartItem";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion"
+import Loader2 from "@/app/components/ui/Loader2";
 
 export default function Cart({ session }: { session: Session }) {
   const [items, setItems] = useState<OrderItem[]>([]);
@@ -201,9 +202,7 @@ export default function Cart({ session }: { session: Session }) {
       <br />
 
       {loading ? (
-        <div className="flex  items-center justify-center min-h-[200px]">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-gray-900"></div>
-        </div>
+       <Loader2/>
       ) : (
         <motion.div
           initial={{ opacity: 0 }}

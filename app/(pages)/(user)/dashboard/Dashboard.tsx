@@ -144,10 +144,10 @@ export default function Dashboard2({
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.2 }}
                 key={item.id + Math.random()}
-                whileHover={{ scale: 1.02 }}
-                className="flex md:w-72 lg:w-63 "
+                whileHover={{  y:-10, boxShadow:"0px 10px 15px rgba(0, 0, 0, 0.3)" }}
+                className="flex md:w-72 lg:w-63"
               >
                 <MenuCard
                   menuItem={item}

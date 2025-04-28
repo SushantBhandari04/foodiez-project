@@ -51,7 +51,7 @@ export default function Hero() {
                 <motion.div
                     initial={{ y: "50%", opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.8 }}
+                    transition={{ duration: 1.2 }}
                     className="flex md:gap-16 gap-8">
                     <button
                         onClick={() => {
@@ -64,9 +64,9 @@ export default function Hero() {
                             else {
                                 router.push("/book")
                             }
-                        }} className="relative z-10 md:py-1 md:h-12 flex px-4 rounded-full hover:translate-x-3 bg-gradient-to-r from-amber-500 to-amber-900/50 hover:from-amber-400 hover:to-amber-600/60  md:text-lg text-xs font-semibold cursor-pointer ml-2 transition-all transform inset 2s  hover:border-0  justify-center items-center md:w-52 gap-2 hover:gap-3 duration:300">Book A Table <RightArrowIcon classname="hover:translate-x-5 md:h-5 h-4" />
+                        }} className="relative z-10 md:py-1 md:h-12 flex px-4 rounded-full hover:translate-x-3 bg-gradient-to-r from-amber-500 to-amber-900/50 hover:from-amber-400 hover:to-amber-600/60  md:text-lg text-xs font-semibold cursor-pointer ml-2 transition-all transform inset 2s  hover:border-0  justify-center items-center md:w-52 gap-2 hover:gap-3 duration:800">Book A Table <RightArrowIcon classname="hover:translate-x-5 md:h-5 h-4" />
                         <span className="absolute z-0 inset-0 border-2 border-amber-500/40 hover:border-transparent  rounded-full opacity-80 
-                        transition-all duration-300 hover:opacity-100  translate-x-2 hover:scale-y-100 hover:-translate-x-0 scale-y-120 "></span>
+                        transition-all duration-500 hover:opacity-100  translate-x-2 hover:scale-y-100 hover:-translate-x-0 scale-y-120 "></span>
                     </button>
 
                     <button className="md:px-8 px-5 md:h-12 py-2  md:text-lg text-xs bg-slate-800/80 hover:bg-slate-700/70 cursor-pointer hover:scale-103 transform transition  border-1 border-slate-500  text-white rounded-full"><Link href="#menu-section">View Menu</Link></button>

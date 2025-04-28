@@ -45,7 +45,6 @@ export default function Navbar() {
         if (open) {
             menuClasses = [
                 "flex",
-
                 "text-xl",
                 "flex-col",
                 "gap-4",
@@ -53,7 +52,7 @@ export default function Navbar() {
                 "left-0",
                 "w-full",
                 "lg:hidden",
-                "p-4",
+                "p-4 px-12",
                 "top-[51px] md:top-13",
                 " bg-gradient-to-b from-indigo-950/95 to-gray-950",
             ]
@@ -72,7 +71,7 @@ export default function Navbar() {
             <Link href="/about"><NavbarTags title="About" icon={<AboutIcon />} onClick={() => setOpen(false)} /></Link>
             <Link href="/dashboard#menu-section"><NavbarTags title="Menu" icon={<MenuIcon />} onClick={() => setOpen(false)} /></Link>
             <Link href="/contact"><NavbarTags title="Contact" icon={<ContactIcon />} onClick={() => setOpen(false)} /></Link>
-            <div className="md:flex hidden" onClick={() => {
+            <div className="lg:flex hidden" onClick={() => {
                 setOpen(false)
                 if (!user) {
                     toast.error("Please login to see cart.", {
@@ -84,7 +83,7 @@ export default function Navbar() {
                 }
             }}><NavbarTags title="Cart" icon={<CartIcon />} /></div>
 
-            <div className=" gap-2 cursor-pointer h-9 px-4 mx-8 lg:mx-0 lg:border-2 lg:text-sm text-[14px] text-green-500 border-green-500 lg:hover:bg-green-500 hover:bg-green-500/60 flex justify-center items-center transition transform hover:text-white lg:rounded-3xl rounded-lg"
+            <div className=" gap-2 cursor-pointer h-9 px-4  lg:mx-0 lg:border-2 lg:text-sm text-[14px] text-green-500 border-green-500 lg:hover:bg-green-500 hover:bg-green-500/60 flex justify-center items-center transition transform hover:text-white lg:rounded-3xl rounded-lg"
                 onClick={() => {
                     setOpen(false)
                     if (!user) {
