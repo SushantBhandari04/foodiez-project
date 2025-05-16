@@ -46,7 +46,7 @@ export default function OrderHistory() {
   }, []);
 
   return (
-    <div className="flex flex-col justify-left  w-full lg:px-32 md:px-16 px-8 gap-6 items-center  lg:mt-12 md:mt-8 mt-6 ">
+    <div className="flex flex-col justify-left  w-full lg:px-4 md:px-4 px-4 gap-6 items-center  lg:mt-12 md:mt-8 mt-6 ">
       <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r  from-cyan-500 to-white via-cyan-200 ">
         Order History
       </h1>

@@ -153,8 +153,8 @@ export default function About() {
             <h1 className="lg:text-5xl md:text-4xl text-2xl font-semibold font-fredoka">Variety of Dishes</h1>
 
             <motion.img
-                initial={{ x: 0, width: 0 }}
-                whileInView={{ x: 0, width: "100%" }} // Increase width to 150%
+                initial={{ x: 0, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }} // Increase width to 150%
                 transition={{ duration: 0.8, delay: 0.3, origin: 1 }}
                 viewport={{ once: true }}
                 src="/food-banner.png"
@@ -164,7 +164,7 @@ export default function About() {
             />
         </div>
 
-        <div className="lg:mt-8 md:mt-6 mt-4 lg:px-16 md:px-8 px-2">
+        <div className="lg:mt-8 md:mt-6 mt-4">
             <Testimonials />
         </div>
 

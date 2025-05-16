@@ -2,11 +2,12 @@
 
 import TypeCard from "@/app/components/ui/TypeCard";
 import { useEffect, useState, useRef } from "react";
-import {  MenuItem, Type } from "@/app/config";
+import { MenuItem, Type } from "@/app/config";
 import { Session } from "next-auth";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useMenuItemsStore } from "@/store";
 import AdminMenuCard from "@/app/components/ui/AdminMenuCard";
+import { SearchIcon } from "@/app/components/ui/Icons";
 
 type AdminHomeProps = {
   session?: Session;
@@ -17,7 +18,7 @@ type AdminHomeProps = {
 export default function AdminHome({
   typesData,
   menuItemsData,
-}: AdminHomeProps   ) {
+}: AdminHomeProps) {
 
   const [currentType, setCurrentType] = useState<null | string>(null);
   const [loading, setLoading] = useState<boolean>(false);
@@ -52,6 +53,26 @@ export default function AdminHome({
     setLoading(false);
   }, [currentType]);
 
+  function browseMenu(searchItem: string) {
+    searchItem = searchItem.trim();
+    let foundItems;
+    if (searchItem == "") {
+      if (currentType == null) {
+        foundItems = menuItemsData
+      } else {
+        foundItems = menuItemsData.filter(item => {
+          return item.typeName === currentType;
+        })
+      }
+    }
+    else {
+      foundItems = menuItemsData.filter(item => {
+        return item.name.toLowerCase().includes(searchItem.toLowerCase());
+      })
+    }
+    setItems(foundItems);
+  }
+
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({ left: -300, behavior: "smooth" });
@@ -69,7 +90,7 @@ export default function AdminHome({
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="w-full overfow-y-scroll no-scrollbar flex flex-col gap-32 mt-16 "
+      className="w-full box-border flex flex-col lg:gap-24 md:gap-20 sm:gap-16 gap-12 m-0 p-0 overflow-hidden pt-10"
     >
 
       <div className="flex flex-col gap-8">
@@ -78,7 +99,7 @@ export default function AdminHome({
         </h1>
         <div className="relative flex justify-center items-center">
           <button
-            className="absolute left-4 top-1/3.5 z-100 transform -translate-y-1/2 bg-gray-300 font-bold text-xl text-black p-2 rounded-full cursor-pointer"
+            className="absolute left-4 top-1/3.5 z-10 transform -translate-y-1/2 bg-gray-300 font-bold text-xl text-black p-2 rounded-full cursor-pointer"
             onClick={scrollLeft}
           >
             &lt;
@@ -122,22 +143,41 @@ export default function AdminHome({
 
       <motion.div
         id="menu-section"
-        className="Menu flex flex-col px-16 gap-12"
+        className="Menu w-full flex flex-col px-8 lg:gap-12 md:gap-12 gap-10 justify-center items-center"
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
       >
-        <h1 className="text-4xl font-medium text-center bg-clip-text text-transparent bg-gradient-to-r  from-cyan-500 to-white via-cyan-100">
+        <h1 className="lg:text-4xl sm:text-4xl text-3xl font-medium text-center bg-clip-text text-transparent bg-gradient-to-r  from-cyan-500 to-white via-cyan-100">
           {currentType == null ? "All Items" : `${currentType}`}
         </h1>
 
-        {loading ? (
+        {/* Search bar */}
+        <div className="relative w-full sm:max-w-2xl md:max-w-4xl mx-4 bg-indigo-800/20 ">
+          <SearchIcon classname="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-400 md:h-5 h-4" />
+          <input
+            type="text"
+            placeholder="Search the menu"
+            className="border-gray-600 border-1 md:p-3 p-2 md:pl-13 pl-12 w-full rounded-full focus:outline-none focus:ring-2 focus:border-transparent focus:ring-blue-400 shadow-sm"
+            onChange={(e) => browseMenu(e.target.value)}
+          />
+        </div>
+
+        {menuItems.length === 0 ? (
           <div className="flex items-center justify-center min-h-[300px]">
-            <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-white"></div>
+            <div className="">No items found</div>
           </div>
         ) : (
-          <motion.div className="flex gap-12 gap-y-28 justify-center flex-wrap w-full h-full py-10">
+          <motion.div className=" gap-9 lg:gap-y-28 md:gap-y-20 gap-y-10  w-full h-full py-10 flex flex-wrap justify-center items-center">
             {menuItems.map((item) => (
               <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.2 }}
                 key={item.id + Math.random()}
-                className="w-1/5"
+                whileHover={{  y:-10, boxShadow:"0px 10px 15px rgba(0, 0, 0, 0.3)" }}
+                className="flex md:w-72 lg:w-63"
               >
                 <AdminMenuCard
                   menuItem={item}

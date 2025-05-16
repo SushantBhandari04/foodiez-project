@@ -52,7 +52,11 @@ export async function GET() {
 
     if(session.user.email==="admin@gmail.com"){
         try{
-            const bookings = await prisma.table.findMany()
+            const bookings = await prisma.table.findMany({
+                orderBy: {
+                    createdAt: "desc"
+                }
+            })
             return NextResponse.json(bookings);
         }catch  {
             return NextResponse.json({ error: "Failed to fetch bookings." }, { status: 500 });
@@ -61,6 +65,9 @@ export async function GET() {
 
     try {
       const bookings = await prisma.table.findMany({
+        orderBy: {
+            createdAt: "desc"
+        },
         where: {
             userId: session.user.id
         }

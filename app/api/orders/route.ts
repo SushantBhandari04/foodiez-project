@@ -24,6 +24,7 @@ export async function GET() {
     try {
       const orders = await prisma.order.findMany({
         where: { status: "completed" },
+        orderBy: { createdAt: "desc" },
         include: { 
           user: true,
           items: { include: { menuItem: true } } },
@@ -37,6 +38,7 @@ export async function GET() {
 
   try {
     const orders = await prisma.order.findMany({
+      orderBy: { createdAt: "desc" },
       where: { userId: user.id },
       include: { items: { include: { menuItem: true } } },
     });

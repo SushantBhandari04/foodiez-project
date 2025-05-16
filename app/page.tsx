@@ -1,14 +1,19 @@
-"use client"
 
-import { useRouter } from "next/navigation";
+import { authOptions } from "@/lib/auth";
+import { getServerSession } from "next-auth";
+import { useSession } from "next-auth/react";
+import { useRouter, redirect } from "next/navigation";
 import { useEffect } from "react";
 
-export default function Home() {
-  const router = useRouter();
+export default async function Home() {
+  const session = await getServerSession(authOptions);
 
-  useEffect(() => {
-    router.push("/dashboard")
-  }, [])
+ if(session?.user.email=="admin@gmail.com"){
+     redirect("/admin/home");
+  }
+  else{
+    redirect("/dashboard");
+  }
 
   return (
     <div className="w-screen"></div>

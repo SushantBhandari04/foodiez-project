@@ -4,6 +4,7 @@ import { authOptions } from "@/lib/auth";
 import { MenuItem, Type } from "@/app/config";
 import axios from "axios";
 import { getCache, setCache } from "@/lib/cache";
+import { redirect } from "next/navigation";
 
 const CACHE_TTL = 60 * 60; // Cache for 1 hour
 
@@ -54,6 +55,10 @@ export default async function DashboardPage() {
     if (!session) {
         console.log("No session");
         return <Dashboard2 typesData={typesData || []} menuItemsData={menuItemsData || []} />;
+    }
+
+    if(session.user.email==="admin@gmail.com"){
+        redirect("/admin/home")
     }
 
     return <Dashboard2 session={session} typesData={typesData} menuItemsData={menuItemsData || []} />;

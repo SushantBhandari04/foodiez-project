@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import  toast  from "react-hot-toast";
+import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { CalendarIcon, ChefHatIcon, HygieneIcon, RightArrowIcon, UtensilsIcon } from "./Icons";
@@ -28,7 +28,7 @@ export default function Hero() {
                     transition={{ duration: 0.8 }}
                     className="flex flex-col justify-center w-full items-center md:gap-6 gap-3 ">
                     <div className="bg-amber-950/70 md:px-5 px-3 md:py-2 py-1 rounded-full border-1 border-amber-700/80 text-[10px] md:text-lg text-amber-white md:font-medium flex md:gap-2 gap-1 justify-center items-center">
-                        <ChefHatIcon classname="md:h-7 h-3"/>
+                        <ChefHatIcon classname="md:h-7 h-3" />
                         <h3>Experience Fine Dining</h3>
                     </div>
                     <div className="flex w-full lg:gap-5 md:gap-4 gap-2 md:mt-2 lg:mt-0  font-semibold lg:text-7xl md:text-6xl text-3xl justify-center font-fredoka px-4">
@@ -42,7 +42,7 @@ export default function Hero() {
 
                     </div>
 
-                    <h2 className="lg:text-[20px] px-3 md:text-lg text-xs md:tracking-tight text-gray-300 max-w-156 text-center ">Experience exceptional dining with our curated menu and seamless table booking system. Every dish tells a story.</h2>
+                    <h2 className="lg:text-[20px] px-3 md:text-lg text-xs  text-gray-300 max-w-160 text-center ">Experience exceptional dining with our curated menu and seamless table booking system. Every dish tells a story.</h2>
 
 
                 </motion.div>
@@ -57,7 +57,7 @@ export default function Hero() {
                         onClick={() => {
                             if (!user) {
                                 toast.error("Please login to book table.", {
-                                    duration:1200
+                                    duration: 1200
 
                                 })
                             }
@@ -73,19 +73,26 @@ export default function Hero() {
 
                 </motion.div>
 
-                <div className="flex flex-col md:flex-row w-full items-center lg:justify-around gap-6 justify-center md:mt-12 mt-2 px-4 ">
-                    <div className="flex flex-col justify-between lg:w-108 gap-5 md:w-96 w-80 lg:h-40 md:h-34 border-1 border-gray-700 bg-slate-900 lg:px-8 lg:py-8 px-4 py-4 rounded-xl hover:border-amber-600 hover:scale-102 transition transform">
+                <div className="flex flex-col md:flex-row w-full items-center lg:justify-around gap-6 justify-center md:mt-6 mt-2 px-4 ">
+                    <motion.div
+                        initial={{ y: 0, opacity: 1 }}
+                        whileHover={{ y: -10, opacity: 1 }}
+                        className="flex flex-col justify-between lg:w-108 gap-5 md:w-96 w-80 lg:h-44 md:h-34 border-1 border-gray-700 bg-slate-900 lg:px-8 lg:py-8 px-4 py-4 rounded-xl hover:border-amber-600 ">
                         <div className="flex gap-2 font-semibold items-center"><UtensilsIcon classname="h-6 lg:h-8" /><h3 className="lg:text-2xl md:text-xl">Browse Menu</h3></div>
                         <h4 className="lg:text-lg md:text-sm text-xs text-gray-400">Discover delicious meals curated just for you.</h4>
-                    </div>
-                    <div className="flex flex-col justify-between lg:w-108 gap-5 md:w-96 w-80 lg:h-40 md:h-34 border-1 border-gray-700 bg-slate-900 lg:px-8 lg:py-8 px-4 py-4  rounded-xl hover:border-amber-600 hover:scale-102 transition transform">
-                        <div className="flex gap-2 font-semibold items-center"><CalendarIcon classname="h-6 lg:h-8"/><h3 className="lg:text-2xl md:text-xl">Book a Table</h3></div>
+                    </motion.div>
+                    <motion.div  initial={{ y: 0, opacity: 1 }}
+                        whileHover={{ y: -10, opacity: 1 }}
+                        className="flex flex-col justify-between lg:w-108 gap-5 md:w-96 w-80 lg:h-44 md:h-34 border-1 border-gray-700 bg-slate-900 lg:px-8 lg:py-8 px-4 py-4 rounded-xl hover:border-amber-600 ">
+                        <div className="flex gap-2 font-semibold items-center"><CalendarIcon classname="h-6 lg:h-8" /><h3 className="lg:text-2xl md:text-xl">Book a Table</h3></div>
                         <h4 className="lg:text-lg md:text-sm text-xs text-gray-400">Discover delicious meals curated just for you.</h4>
-                    </div>
-                    <div className="flex flex-col justify-between lg:w-108 gap-5 md:w-97 w-80 lg:h-40 md:h-34 border-1 border-gray-700 bg-slate-900 lg:px-8 lg:py-8 md:px-2 px-4  py-4  rounded-xl hover:border-amber-600 hover:scale-102 transition transform">
-                        <div className="flex gap-2 font-semibold items-center"><HygieneIcon classname="h-7 lg:h-9"/><h3 className="lg:text-2xl md:text-xl">Hygiene & Safety</h3></div>
+                    </motion.div>
+                    <motion.div  initial={{ y: 0, opacity: 1 }}
+                        whileHover={{ y: -10, opacity: 1 }}
+                        className="flex flex-col justify-between lg:w-108 gap-5 md:w-96 w-80 lg:h-44 md:h-34 border-1 border-gray-700 bg-slate-900 lg:px-8 lg:py-8 px-4 py-4 rounded-xl hover:border-amber-600 ">
+                        <div className="flex gap-2 font-semibold items-center"><HygieneIcon classname="h-7 lg:h-9" /><h3 className="lg:text-2xl md:text-xl">Hygiene & Safety</h3></div>
                         <h4 className="lg:text-lg md:text-sm text-xs text-gray-400">We follow all hygiene protocols for your safety.</h4>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </motion.div>

@@ -8,7 +8,7 @@ export default function Footer() {
             <div className="flex flex-col lg:gap-12 md:gap-10 gap-6 w-full justify-left items-left m-0 p-0">
                 <div className="w-full flex flex-col md:justify-center justify-start md:items-center gap-4">
                     <div className=" "><Logo /></div>
-                    <div className="text-slate-300 flex md:flex-row flex-col md:gap-3 gap-1  lg:text-md md:text-sm text-xs">Designed and developed by :<h1 className="text-red-300">Dheerendra, Devang, Ranjan and Sushant</h1></div>
+                    <div className="text-slate-300 flex md:flex-row flex-col md:gap-3 gap-1  lg:text-[16px] md:text-sm text-xs">Designed and developed by :<h1 className="text-red-300">Sushant</h1></div>
                 </div>
 
                 <div className="flex flex-col lg:gap-8 md:gap-6 gap-4 lg:text-md md:text-sm text-xs">
