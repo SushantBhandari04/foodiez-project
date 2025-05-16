@@ -10,7 +10,7 @@ export default function ProfileButton({ letter, isAdmin, classname }: { letter: 
             className={`
     ${classname}
     cursor-pointer text-white
-    w-8.5 h-8.5  // <-- Ensures perfect circle
+    lg:w-8.5 lg:h-8.5 md:h-7 md:w-7 w-6.5 h-6.5  // <-- Ensures perfect circle
     flex justify-center items-center
     md:text-md text-sm
     rounded-full

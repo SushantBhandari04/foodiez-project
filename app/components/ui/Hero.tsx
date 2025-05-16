@@ -18,7 +18,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative flex w-full md:h-[750px] h-[700px] bg-[url('/new-hero-7.jpg')] bg-cover bg-center font-dmsans before:absolute before:inset-0 before:bg-black/40 before:backdrop-blur-2xs before:z-0 overflow-hidden"
+            className="relative flex w-full md:h-[750px] h-[680px] bg-[url('/new-hero-7.jpg')] bg-cover bg-center font-dmsans before:absolute before:inset-0 before:bg-black/40 before:backdrop-blur-2xs before:z-0 overflow-hidden"
         >
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-80"></div>
             <div className="relative w-full z-10 flex flex-col md:gap-20 gap-12 justify-center items-center">
@@ -42,7 +42,7 @@ export default function Hero() {
 
                     </div>
 
-                    <h2 className="lg:text-[20px] px-3 md:text-lg text-xs  text-gray-300 max-w-160 text-center ">Experience exceptional dining with our curated menu and seamless table booking system. Every dish tells a story.</h2>
+                    <h2 className="lg:text-[20px] px-3 md:text-lg text-xs  text-gray-300 md:max-w-160 max-w-120 text-center ">Experience exceptional dining with our curated menu and seamless table booking system. Every dish tells a story.</h2>
 
 
                 </motion.div>

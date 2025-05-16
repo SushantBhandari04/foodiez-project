@@ -91,6 +91,19 @@ export default function Dashboard2({
     setItems(foundItems);
   }
 
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -300, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    }
+  };
+
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -111,6 +124,55 @@ export default function Dashboard2({
         setCurrentType={setCurrentType}
       />
 
+      <div className="md:hidden flex flex-col gap-10 ">
+        <h1 className="lg:text-5xl sm:text-4xl text-3xl font-medium text-center bg-clip-text text-transparent bg-gradient-to-r  from-cyan-500 to-white via-cyan-100">
+          Explore the varieties
+        </h1>
+
+        <div className="md:hidden relative flex justify-center items-center">
+          <button
+            className="hidden md:absolute left-4 top-1/3.5 z-10 transform -translate-y-1/2 bg-gray-300 font-bold text-xl text-black p-2 rounded-full cursor-pointer"
+            onClick={scrollLeft}
+          >
+            &lt;
+          </button>
+          <motion.div
+            ref={scrollContainerRef}
+            className=" flex md:gap-8 gap-4 justify-start overflow-x-auto no-scrollbar overflow-hidden py-8 md:px-16 px-4 md:mr-16 mr-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {typesData &&
+              typesData.map((type) => (
+                <motion.div key={type.id} whileHover={{ scale: 1.02 }}>
+                  <TypeCard
+                    onClick={() => setCurrentType(type.name)}
+                    img={type.image}
+                    title={type.name}
+                    description={type.description}
+                  />
+                </motion.div>
+              ))}
+            <motion.div whileHover={{ scale: 1.02 }}>
+              <TypeCard
+                onClick={() => setCurrentType(null)}
+                key={0}
+                img={"/all-items-image.jpg"}
+                title={"All Items"}
+                description={"Burgers, Pizzas, Paneer, Drinks, and more"}
+              />
+            </motion.div>
+          </motion.div>
+          <button
+            className="hidden md:absolute right-4 text-xl top-1/3.5 font-bold transform -translate-y-1/2 bg-gray-300 text-black p-2 rounded-full cursor-pointer"
+            onClick={scrollRight}
+          >
+            &gt;
+          </button>
+        </div>
+
+      </div>
       <motion.div
         id="menu-section"
         className="Menu w-full flex flex-col px-8 lg:gap-16 md:gap-14 gap-12 justify-center items-center"
@@ -146,7 +208,7 @@ export default function Dashboard2({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.2 }}
                 key={item.id + Math.random()}
-                whileHover={{  y:-10, boxShadow:"0px 10px 15px rgba(0, 0, 0, 0.3)" }}
+                whileHover={{ y: -10, boxShadow: "0px 10px 15px rgba(0, 0, 0, 0.3)" }}
                 className="flex md:w-72 lg:w-63"
               >
                 <MenuCard
@@ -161,8 +223,8 @@ export default function Dashboard2({
                         loading: "Adding",
                         success: <b>Added to cart</b>,
                         error: <b>Could not add.</b>,
-                        
-                      },{
+
+                      }, {
                         success: {
                           duration: 700
                         }

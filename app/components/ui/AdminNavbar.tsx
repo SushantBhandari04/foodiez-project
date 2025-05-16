@@ -70,9 +70,9 @@ export default function AdminNavbar() {
         <div className={getMenuClasses()}>
             <Link href="/admin/home"><NavbarTags title="Home"  onClick={() => setOpen(false)} /></Link>
             <Link href="/admin/home#menu-section"><NavbarTags title="Menu"  onClick={() => setOpen(false)} /></Link>
-            <Link href="/admin/add-menu-item"><NavbarTags title="Add-item" /></Link>
-            <Link href="/admin/orders"><NavbarTags title="Orders" /></Link>
-            <Link href="/admin/bookings"><NavbarTags title="Bookings" /></Link>
+            <Link href="/admin/add-menu-item"><NavbarTags title="Add-item" onClick={() => setOpen(false)} /></Link>
+            <Link href="/admin/orders"><NavbarTags title="Orders" onClick={() => setOpen(false)} /></Link>
+            <Link href="/admin/bookings"><NavbarTags title="Bookings" onClick={() => setOpen(false)} /></Link>
             {user && <div className="hidden lg:block"><ProfileButton isAdmin={isAdmin} letter={user.name ? user.name[0].toUpperCase() : user.username[0].toUpperCase()} /></div>}
         </div>
 

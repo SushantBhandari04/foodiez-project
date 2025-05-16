@@ -11,7 +11,7 @@ type TypecardMarqueeProps = {
 
 export default function TypecardMarquee({ scrollContainerRef, typesData, setCurrentType }: TypecardMarqueeProps) {
     return (
-        <div className="flex flex-col md:gap-16 gap-8">
+        <div className="md:flex flex-col md:gap-16 gap-8 hidden">
             <h1 className="lg:text-5xl sm:text-4xl text-3xl font-medium text-center bg-clip-text text-transparent bg-gradient-to-r  from-cyan-500 to-white via-cyan-100">
                 Explore the varieties
             </h1>

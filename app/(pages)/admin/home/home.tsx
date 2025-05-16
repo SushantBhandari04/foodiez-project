@@ -99,14 +99,14 @@ export default function AdminHome({
         </h1>
         <div className="relative flex justify-center items-center">
           <button
-            className="absolute left-4 top-1/3.5 z-10 transform -translate-y-1/2 bg-gray-300 font-bold text-xl text-black p-2 rounded-full cursor-pointer"
+            className="hidden md:absolute left-4 top-1/3.5 z-10 transform -translate-y-1/2 bg-gray-300 font-bold text-xl text-black p-2 rounded-full cursor-pointer"
             onClick={scrollLeft}
           >
             &lt;
           </button>
           <motion.div
             ref={scrollContainerRef}
-            className=" flex gap-8 justify-start overflow-x-auto no-scrollbar overflow-hidden py-8 px-16 mr-16"
+            className=" flex md:gap-8 gap-4 justify-start overflow-x-auto no-scrollbar overflow-hidden py-8 md:px-16 px-4 md:mr-16 mr-4"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -133,7 +133,7 @@ export default function AdminHome({
             </motion.div>
           </motion.div>
           <button
-            className="absolute right-4 text-xl top-1/3.5 font-bold transform -translate-y-1/2 bg-gray-300 text-black p-2 rounded-full cursor-pointer"
+            className="hidden md:absolute right-4 text-xl top-1/3.5 font-bold transform -translate-y-1/2 bg-gray-300 text-black p-2 rounded-full cursor-pointer"
             onClick={scrollRight}
           >
             &gt;
